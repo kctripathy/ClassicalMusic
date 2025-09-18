@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# SQL Server Management Studio Solution File, Format Version 19.00
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "ClassicalMusicDBScripts", "ClassicalMusicDBScripts.ssmssqlproj", "{0B07D0FE-C47E-4652-B7BC-7F00F78B043D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Default|Default = Default|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0B07D0FE-C47E-4652-B7BC-7F00F78B043D}.Default|Default.ActiveCfg = Default
+		{B3875118-E0B1-4357-9BE8-0645351EF896}.Default|Default.ActiveCfg = Default
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2CB55651-2B62-4968-ACBC-0E0193D10503}
+	EndGlobalSection
+EndGlobal
