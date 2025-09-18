@@ -1,0 +1,43 @@
+﻿@model ClassicalMusicApp.ViewModels.RagaDetailsViewModel
+@{
+    ViewBag.Title = "RaagaDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Raaga Details</h2>
+<h3>@Model.Raga.Name</h3>
+<div class="row">
+    <div class="col-lg-6">
+        <div class="row">
+            <div class="col-2">Aroh</div>
+            <div class="col-10">@Model.Raga.Aroh</div>
+        </div>
+        <div class="row">
+            <div class="col-2">Avroh</div>
+            <div class="col-10">@Model.Raga.Avroh</div>
+        </div>
+        <div class="row">
+            <div class="col-2">Pakad</div>
+            <div class="col-10">@Model.Raga.Pakad</div>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <h4>Compositions</h4>
+        @foreach (var item in Model.Raga.Compositions)
+        {
+            <div class="row">
+                <div class="col-lg-4">
+                    @item.Title
+                </div>
+                <div class="col-lg-4">
+                    @item.Tala
+                </div>
+                <div class="col-lg-4">
+                    @item.Artist
+                </div>
+                
+            </div>
+        }
+    </div>
+</div>
+

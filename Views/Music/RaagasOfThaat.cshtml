@@ -1,0 +1,89 @@
+﻿@model IEnumerable<ClassicalMusicApp.Raga>
+
+@{
+    ViewBag.Title = "RaagasOfThaat";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>RaagasOfThaat</h2>
+
+<p class="d-none">
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th class="d-none">
+            @Html.DisplayNameFor(model => model.Thaat.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mood)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Aroh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Avroh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Vadi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Samvadi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pakad)
+        </th>
+        <th class="d-none">
+            @Html.DisplayNameFor(model => model.Swara)
+        </th>
+        <th class="d-none"></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td class="d-none">
+            @Html.DisplayFor(modelItem => item.Thaat.Name)
+        </td>
+        <td>
+            @*@Html.DisplayFor(modelItem => item.Name)*@
+            @Html.ActionLink(item.Name, "RaagaDetails", "Music", new { item.ID }, null)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Mood)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Aroh)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Avroh)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Vadi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Samvadi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pakad)
+        </td>
+        <td class="d-none">
+            @Html.DisplayFor(modelItem => item.Swara)
+        </td>
+        <td class="d-none">
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

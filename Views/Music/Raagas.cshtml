@@ -1,0 +1,16 @@
+﻿@model IEnumerable<ClassicalMusicApp.Models.Raaga>
+
+@{
+    ViewBag.Title = "Raaga";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Raaga</h2>
+
+@foreach (var raga in Model)
+{
+    <p>
+        @raga.RaagaName
+        @raga.Aroh
+    </p>
+}

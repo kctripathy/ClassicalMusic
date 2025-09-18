@@ -1,0 +1,1630 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ClassicalMusicModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AppImages">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Image_For" Type="varchar" MaxLength="100" />
+          <Property Name="Image_For_Id" Type="int" />
+          <Property Name="ImageUrl" Type="varchar" MaxLength="500" />
+          <Property Name="ImageUrl_mid" Type="varchar" MaxLength="500" />
+          <Property Name="ImageUrl_small" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="AppResource">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AppResource_name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="AppResource_code" Type="varchar" MaxLength="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AppUser">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="SubscriptionType" Type="varchar" MaxLength="50" />
+          <Property Name="JoinDate" Type="date" />
+          <Property Name="RoleID" Type="int" />
+        </EntityType>
+        <EntityType Name="Artist">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ArtistName" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Biography" Type="nvarchar" MaxLength="200" />
+          <Property Name="Country" Type="varchar" MaxLength="10" />
+          <Property Name="AppResourceID" Type="int" />
+        </EntityType>
+        <EntityType Name="ArtistRoles">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ArtistID" Type="int" />
+          <Property Name="RoleID" Type="int" />
+        </EntityType>
+        <EntityType Name="Composition">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Lyrics" Type="nvarchar" MaxLength="200" />
+          <Property Name="LanguageID" Type="int" />
+          <Property Name="RagaID" Type="int" />
+          <Property Name="TalaID" Type="int" />
+          <Property Name="ComposerID" Type="int" />
+          <Property Name="MovieID" Type="int" />
+          <Property Name="MusicTypeID" Type="int" />
+          <Property Name="AppResourceID" Type="int" />
+        </EntityType>
+        <EntityType Name="CompositionAlap">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LineNumber" Type="int" />
+          <Property Name="Notations" Type="nvarchar" MaxLength="500" />
+          <Property Name="CompositionID" Type="int" />
+          <Property Name="AppResourceID" Type="int" />
+        </EntityType>
+        <EntityType Name="CompositionNotations">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LineType" Type="varchar" MaxLength="2" />
+          <Property Name="LineNumber" Type="int" />
+          <Property Name="BitNumber" Type="int" />
+          <Property Name="Notations" Type="nvarchar" MaxLength="10" />
+          <Property Name="CompositionID" Type="int" />
+          <Property Name="AppResourceID" Type="int" />
+        </EntityType>
+        <EntityType Name="Languages">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LanguageName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="LanguageName_en" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Movie">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MovieName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ReleaseDate" Type="date" />
+          <Property Name="Casting" Type="nvarchar" MaxLength="1000" />
+          <Property Name="DirectorID" Type="int" />
+          <Property Name="MusicDirectorID" Type="int" />
+          <Property Name="AppResourceID" Type="int" />
+        </EntityType>
+        <EntityType Name="MusicalInstrument">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MusicalInstrumentName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="MusicalInstrumentDesc" Type="nvarchar" MaxLength="200" />
+          <Property Name="AppResourceID" Type="int" />
+        </EntityType>
+        <EntityType Name="MusicType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MusicTypeName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="MusicTypeDesc" Type="nvarchar" MaxLength="200" />
+          <Property Name="AppResourceID" Type="int" />
+        </EntityType>
+        <EntityType Name="Performance">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PerformanceDate" Type="date" />
+          <Property Name="Venue" Type="varchar" MaxLength="200" />
+          <Property Name="ArtistID" Type="int" />
+          <Property Name="CompositionID" Type="int" />
+          <Property Name="MusicalInstrumentID" Type="int" />
+          <Property Name="Notes" Type="nvarchar" MaxLength="2000" />
+        </EntityType>
+        <EntityType Name="Raaga">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RaagaName" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="RaagaTime" Type="varchar" MaxLength="100" />
+          <Property Name="Mood" Type="varchar" MaxLength="200" />
+          <Property Name="Aroh" Type="nvarchar" MaxLength="200" />
+          <Property Name="Avroh" Type="nvarchar" MaxLength="200" />
+          <Property Name="Pakad" Type="nvarchar" MaxLength="150" />
+          <Property Name="Vadi" Type="nvarchar" MaxLength="2" />
+          <Property Name="Samvadi" Type="nvarchar" MaxLength="2" />
+          <Property Name="Swara" Type="nvarchar" MaxLength="1500" />
+          <Property Name="ThaatID" Type="int" />
+          <Property Name="MusicTypeID" Type="int" />
+          <Property Name="AppResourceID" Type="int" />
+          <Property Name="RaagaDesc" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Recording">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FilePath" Type="varchar" MaxLength="500" />
+          <Property Name="RecordingFormat" Type="varchar" MaxLength="50" />
+          <Property Name="Duration" Type="int" />
+          <Property Name="PerformanceID" Type="int" />
+        </EntityType>
+        <EntityType Name="Tala">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TalaName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="TotalBits" Type="int" />
+          <Property Name="TalisAtBits" Type="varchar" MaxLength="10" />
+          <Property Name="KhalisAtBits" Type="varchar" MaxLength="10" />
+          <Property Name="Bol" Type="nvarchar" MaxLength="200" />
+          <Property Name="AppResourceID" Type="int" />
+        </EntityType>
+        <EntityType Name="Thaat">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ThaatName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ThaatDesc" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="MusicTypeID" Type="int" />
+          <Property Name="AppResourceID" Type="int" />
+        </EntityType>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleName" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__AppUser__RoleID__0697FACD">
+          <End Role="UserRole" Type="Self.UserRole" Multiplicity="0..1" />
+          <End Role="AppUser" Type="Self.AppUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserRole">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AppUser">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Artist__AppResou__5AB9788F">
+          <End Role="AppResource" Type="Self.AppResource" Multiplicity="0..1" />
+          <End Role="Artist" Type="Self.Artist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AppResource">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Artist">
+              <PropertyRef Name="AppResourceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ArtistRol__Artis__5D95E53A">
+          <End Role="Artist" Type="Self.Artist" Multiplicity="0..1" />
+          <End Role="ArtistRoles" Type="Self.ArtistRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artist">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ArtistRoles">
+              <PropertyRef Name="ArtistID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ArtistRol__RoleI__5E8A0973">
+          <End Role="UserRole" Type="Self.UserRole" Multiplicity="0..1" />
+          <End Role="ArtistRoles" Type="Self.ArtistRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserRole">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ArtistRoles">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Compositi__AppRe__719CDDE7">
+          <End Role="AppResource" Type="Self.AppResource" Multiplicity="0..1" />
+          <End Role="Composition" Type="Self.Composition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AppResource">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Composition">
+              <PropertyRef Name="AppResourceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Compositi__AppRe__76619304">
+          <End Role="AppResource" Type="Self.AppResource" Multiplicity="0..1" />
+          <End Role="CompositionAlap" Type="Self.CompositionAlap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AppResource">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CompositionAlap">
+              <PropertyRef Name="AppResourceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Compositi__AppRe__7B264821">
+          <End Role="AppResource" Type="Self.AppResource" Multiplicity="0..1" />
+          <End Role="CompositionNotations" Type="Self.CompositionNotations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AppResource">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CompositionNotations">
+              <PropertyRef Name="AppResourceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Compositi__Compo__6DCC4D03">
+          <End Role="Artist" Type="Self.Artist" Multiplicity="0..1" />
+          <End Role="Composition" Type="Self.Composition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artist">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Composition">
+              <PropertyRef Name="ComposerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Compositi__Compo__74794A92">
+          <End Role="Composition" Type="Self.Composition" Multiplicity="0..1" />
+          <End Role="CompositionAlap" Type="Self.CompositionAlap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Composition">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CompositionAlap">
+              <PropertyRef Name="CompositionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Compositi__Compo__793DFFAF">
+          <End Role="Composition" Type="Self.Composition" Multiplicity="0..1" />
+          <End Role="CompositionNotations" Type="Self.CompositionNotations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Composition">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CompositionNotations">
+              <PropertyRef Name="CompositionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Compositi__Langu__6AEFE058">
+          <End Role="Languages" Type="Self.Languages" Multiplicity="0..1" />
+          <End Role="Composition" Type="Self.Composition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Languages">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Composition">
+              <PropertyRef Name="LanguageID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Compositi__Movie__6EC0713C">
+          <End Role="Movie" Type="Self.Movie" Multiplicity="0..1" />
+          <End Role="Composition" Type="Self.Composition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movie">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Composition">
+              <PropertyRef Name="MovieID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Compositi__Music__6FB49575">
+          <End Role="MusicType" Type="Self.MusicType" Multiplicity="0..1" />
+          <End Role="Composition" Type="Self.Composition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MusicType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Composition">
+              <PropertyRef Name="MusicTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Compositi__RagaI__6BE40491">
+          <End Role="Raaga" Type="Self.Raaga" Multiplicity="0..1" />
+          <End Role="Composition" Type="Self.Composition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Raaga">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Composition">
+              <PropertyRef Name="RagaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Compositi__TalaI__6CD828CA">
+          <End Role="Tala" Type="Self.Tala" Multiplicity="0..1" />
+          <End Role="Composition" Type="Self.Composition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tala">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Composition">
+              <PropertyRef Name="TalaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Movie__AppResour__625A9A57">
+          <End Role="AppResource" Type="Self.AppResource" Multiplicity="0..1" />
+          <End Role="Movie" Type="Self.Movie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AppResource">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Movie">
+              <PropertyRef Name="AppResourceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MusicalIn__AppRe__4D5F7D71">
+          <End Role="AppResource" Type="Self.AppResource" Multiplicity="0..1" />
+          <End Role="MusicalInstrument" Type="Self.MusicalInstrument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AppResource">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MusicalInstrument">
+              <PropertyRef Name="AppResourceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MusicType__AppRe__498EEC8D">
+          <End Role="AppResource" Type="Self.AppResource" Multiplicity="0..1" />
+          <End Role="MusicType" Type="Self.MusicType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AppResource">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MusicType">
+              <PropertyRef Name="AppResourceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Performan__Artis__7EF6D905">
+          <End Role="Artist" Type="Self.Artist" Multiplicity="0..1" />
+          <End Role="Performance" Type="Self.Performance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artist">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Performance">
+              <PropertyRef Name="ArtistID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Performan__Compo__7E02B4CC">
+          <End Role="Composition" Type="Self.Composition" Multiplicity="0..1" />
+          <End Role="Performance" Type="Self.Performance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Composition">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Performance">
+              <PropertyRef Name="CompositionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Performan__Music__7FEAFD3E">
+          <End Role="MusicalInstrument" Type="Self.MusicalInstrument" Multiplicity="0..1" />
+          <End Role="Performance" Type="Self.Performance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MusicalInstrument">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Performance">
+              <PropertyRef Name="MusicalInstrumentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Raaga__AppResour__681373AD">
+          <End Role="AppResource" Type="Self.AppResource" Multiplicity="0..1" />
+          <End Role="Raaga" Type="Self.Raaga" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AppResource">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Raaga">
+              <PropertyRef Name="AppResourceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Raaga__MusicType__662B2B3B">
+          <End Role="MusicType" Type="Self.MusicType" Multiplicity="0..1" />
+          <End Role="Raaga" Type="Self.Raaga" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MusicType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Raaga">
+              <PropertyRef Name="MusicTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Raaga__ThaatID__65370702">
+          <End Role="Thaat" Type="Self.Thaat" Multiplicity="0..1" />
+          <End Role="Raaga" Type="Self.Raaga" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Thaat">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Raaga">
+              <PropertyRef Name="ThaatID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Recording__Perfo__02C769E9">
+          <End Role="Performance" Type="Self.Performance" Multiplicity="0..1" />
+          <End Role="Recording" Type="Self.Recording" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Performance">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Recording">
+              <PropertyRef Name="PerformanceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tala__AppResourc__55F4C372">
+          <End Role="AppResource" Type="Self.AppResource" Multiplicity="0..1" />
+          <End Role="Tala" Type="Self.Tala" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AppResource">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Tala">
+              <PropertyRef Name="AppResourceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Thaat__AppResour__5224328E">
+          <End Role="AppResource" Type="Self.AppResource" Multiplicity="0..1" />
+          <End Role="Thaat" Type="Self.Thaat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AppResource">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Thaat">
+              <PropertyRef Name="AppResourceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Thaat__MusicType__503BEA1C">
+          <End Role="MusicType" Type="Self.MusicType" Multiplicity="0..1" />
+          <End Role="Thaat" Type="Self.Thaat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MusicType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Thaat">
+              <PropertyRef Name="MusicTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ClassicalMusicModelStoreContainer">
+          <EntitySet Name="AppImages" EntityType="Self.AppImages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AppResource" EntityType="Self.AppResource" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AppUser" EntityType="Self.AppUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Artist" EntityType="Self.Artist" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ArtistRoles" EntityType="Self.ArtistRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Composition" EntityType="Self.Composition" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CompositionAlap" EntityType="Self.CompositionAlap" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CompositionNotations" EntityType="Self.CompositionNotations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Languages" EntityType="Self.Languages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Movie" EntityType="Self.Movie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MusicalInstrument" EntityType="Self.MusicalInstrument" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MusicType" EntityType="Self.MusicType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Performance" EntityType="Self.Performance" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Raaga" EntityType="Self.Raaga" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Recording" EntityType="Self.Recording" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tala" EntityType="Self.Tala" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Thaat" EntityType="Self.Thaat" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__AppUser__RoleID__0697FACD" Association="Self.FK__AppUser__RoleID__0697FACD">
+            <End Role="UserRole" EntitySet="UserRole" />
+            <End Role="AppUser" EntitySet="AppUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Artist__AppResou__5AB9788F" Association="Self.FK__Artist__AppResou__5AB9788F">
+            <End Role="AppResource" EntitySet="AppResource" />
+            <End Role="Artist" EntitySet="Artist" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ArtistRol__Artis__5D95E53A" Association="Self.FK__ArtistRol__Artis__5D95E53A">
+            <End Role="Artist" EntitySet="Artist" />
+            <End Role="ArtistRoles" EntitySet="ArtistRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ArtistRol__RoleI__5E8A0973" Association="Self.FK__ArtistRol__RoleI__5E8A0973">
+            <End Role="UserRole" EntitySet="UserRole" />
+            <End Role="ArtistRoles" EntitySet="ArtistRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Compositi__AppRe__719CDDE7" Association="Self.FK__Compositi__AppRe__719CDDE7">
+            <End Role="AppResource" EntitySet="AppResource" />
+            <End Role="Composition" EntitySet="Composition" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Compositi__AppRe__76619304" Association="Self.FK__Compositi__AppRe__76619304">
+            <End Role="AppResource" EntitySet="AppResource" />
+            <End Role="CompositionAlap" EntitySet="CompositionAlap" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Compositi__AppRe__7B264821" Association="Self.FK__Compositi__AppRe__7B264821">
+            <End Role="AppResource" EntitySet="AppResource" />
+            <End Role="CompositionNotations" EntitySet="CompositionNotations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Compositi__Compo__6DCC4D03" Association="Self.FK__Compositi__Compo__6DCC4D03">
+            <End Role="Artist" EntitySet="Artist" />
+            <End Role="Composition" EntitySet="Composition" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Compositi__Compo__74794A92" Association="Self.FK__Compositi__Compo__74794A92">
+            <End Role="Composition" EntitySet="Composition" />
+            <End Role="CompositionAlap" EntitySet="CompositionAlap" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Compositi__Compo__793DFFAF" Association="Self.FK__Compositi__Compo__793DFFAF">
+            <End Role="Composition" EntitySet="Composition" />
+            <End Role="CompositionNotations" EntitySet="CompositionNotations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Compositi__Langu__6AEFE058" Association="Self.FK__Compositi__Langu__6AEFE058">
+            <End Role="Languages" EntitySet="Languages" />
+            <End Role="Composition" EntitySet="Composition" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Compositi__Movie__6EC0713C" Association="Self.FK__Compositi__Movie__6EC0713C">
+            <End Role="Movie" EntitySet="Movie" />
+            <End Role="Composition" EntitySet="Composition" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Compositi__Music__6FB49575" Association="Self.FK__Compositi__Music__6FB49575">
+            <End Role="MusicType" EntitySet="MusicType" />
+            <End Role="Composition" EntitySet="Composition" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Compositi__RagaI__6BE40491" Association="Self.FK__Compositi__RagaI__6BE40491">
+            <End Role="Raaga" EntitySet="Raaga" />
+            <End Role="Composition" EntitySet="Composition" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Compositi__TalaI__6CD828CA" Association="Self.FK__Compositi__TalaI__6CD828CA">
+            <End Role="Tala" EntitySet="Tala" />
+            <End Role="Composition" EntitySet="Composition" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Movie__AppResour__625A9A57" Association="Self.FK__Movie__AppResour__625A9A57">
+            <End Role="AppResource" EntitySet="AppResource" />
+            <End Role="Movie" EntitySet="Movie" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MusicalIn__AppRe__4D5F7D71" Association="Self.FK__MusicalIn__AppRe__4D5F7D71">
+            <End Role="AppResource" EntitySet="AppResource" />
+            <End Role="MusicalInstrument" EntitySet="MusicalInstrument" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MusicType__AppRe__498EEC8D" Association="Self.FK__MusicType__AppRe__498EEC8D">
+            <End Role="AppResource" EntitySet="AppResource" />
+            <End Role="MusicType" EntitySet="MusicType" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Performan__Artis__7EF6D905" Association="Self.FK__Performan__Artis__7EF6D905">
+            <End Role="Artist" EntitySet="Artist" />
+            <End Role="Performance" EntitySet="Performance" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Performan__Compo__7E02B4CC" Association="Self.FK__Performan__Compo__7E02B4CC">
+            <End Role="Composition" EntitySet="Composition" />
+            <End Role="Performance" EntitySet="Performance" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Performan__Music__7FEAFD3E" Association="Self.FK__Performan__Music__7FEAFD3E">
+            <End Role="MusicalInstrument" EntitySet="MusicalInstrument" />
+            <End Role="Performance" EntitySet="Performance" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Raaga__AppResour__681373AD" Association="Self.FK__Raaga__AppResour__681373AD">
+            <End Role="AppResource" EntitySet="AppResource" />
+            <End Role="Raaga" EntitySet="Raaga" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Raaga__MusicType__662B2B3B" Association="Self.FK__Raaga__MusicType__662B2B3B">
+            <End Role="MusicType" EntitySet="MusicType" />
+            <End Role="Raaga" EntitySet="Raaga" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Raaga__ThaatID__65370702" Association="Self.FK__Raaga__ThaatID__65370702">
+            <End Role="Thaat" EntitySet="Thaat" />
+            <End Role="Raaga" EntitySet="Raaga" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Recording__Perfo__02C769E9" Association="Self.FK__Recording__Perfo__02C769E9">
+            <End Role="Performance" EntitySet="Performance" />
+            <End Role="Recording" EntitySet="Recording" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tala__AppResourc__55F4C372" Association="Self.FK__Tala__AppResourc__55F4C372">
+            <End Role="AppResource" EntitySet="AppResource" />
+            <End Role="Tala" EntitySet="Tala" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Thaat__AppResour__5224328E" Association="Self.FK__Thaat__AppResour__5224328E">
+            <End Role="AppResource" EntitySet="AppResource" />
+            <End Role="Thaat" EntitySet="Thaat" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Thaat__MusicType__503BEA1C" Association="Self.FK__Thaat__MusicType__503BEA1C">
+            <End Role="MusicType" EntitySet="MusicType" />
+            <End Role="Thaat" EntitySet="Thaat" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ClassicalMusicModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AppResource">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AppResource_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AppResource_code" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Artists" Relationship="Self.FK__Artist__AppResou__5AB9788F" FromRole="AppResource" ToRole="Artist" />
+          <NavigationProperty Name="Compositions" Relationship="Self.FK__Compositi__AppRe__719CDDE7" FromRole="AppResource" ToRole="Composition" />
+          <NavigationProperty Name="CompositionAlaps" Relationship="Self.FK__Compositi__AppRe__76619304" FromRole="AppResource" ToRole="CompositionAlap" />
+          <NavigationProperty Name="CompositionNotations" Relationship="Self.FK__Compositi__AppRe__7B264821" FromRole="AppResource" ToRole="CompositionNotations" />
+          <NavigationProperty Name="Movies" Relationship="Self.FK__Movie__AppResour__625A9A57" FromRole="AppResource" ToRole="Movie" />
+          <NavigationProperty Name="MusicalInstruments" Relationship="Self.FK__MusicalIn__AppRe__4D5F7D71" FromRole="AppResource" ToRole="MusicalInstrument" />
+          <NavigationProperty Name="MusicTypes" Relationship="Self.FK__MusicType__AppRe__498EEC8D" FromRole="AppResource" ToRole="MusicType" />
+          <NavigationProperty Name="Raagas" Relationship="Self.FK__Raaga__AppResour__681373AD" FromRole="AppResource" ToRole="Raaga" />
+          <NavigationProperty Name="Talas" Relationship="Self.FK__Tala__AppResourc__55F4C372" FromRole="AppResource" ToRole="Tala" />
+          <NavigationProperty Name="Thaats" Relationship="Self.FK__Thaat__AppResour__5224328E" FromRole="AppResource" ToRole="Thaat" />
+        </EntityType>
+        <EntityType Name="AppUser">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SubscriptionType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="JoinDate" Type="DateTime" Precision="0" />
+          <Property Name="RoleID" Type="Int32" />
+          <NavigationProperty Name="UserRole" Relationship="Self.FK__AppUser__RoleID__0697FACD" FromRole="AppUser" ToRole="UserRole" />
+        </EntityType>
+        <EntityType Name="Artist">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ArtistName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Biography" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="AppResourceID" Type="Int32" />
+          <NavigationProperty Name="AppResource" Relationship="Self.FK__Artist__AppResou__5AB9788F" FromRole="Artist" ToRole="AppResource" />
+          <NavigationProperty Name="ArtistRoles" Relationship="Self.FK__ArtistRol__Artis__5D95E53A" FromRole="Artist" ToRole="ArtistRoles" />
+          <NavigationProperty Name="Compositions" Relationship="Self.FK__Compositi__Compo__6DCC4D03" FromRole="Artist" ToRole="Composition" />
+          <NavigationProperty Name="Performances" Relationship="Self.FK__Performan__Artis__7EF6D905" FromRole="Artist" ToRole="Performance" />
+        </EntityType>
+        <EntityType Name="ArtistRole">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ArtistID" Type="Int32" />
+          <Property Name="RoleID" Type="Int32" />
+          <NavigationProperty Name="Artist" Relationship="Self.FK__ArtistRol__Artis__5D95E53A" FromRole="ArtistRoles" ToRole="Artist" />
+          <NavigationProperty Name="UserRole" Relationship="Self.FK__ArtistRol__RoleI__5E8A0973" FromRole="ArtistRoles" ToRole="UserRole" />
+        </EntityType>
+        <EntityType Name="Composition">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Lyrics" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="LanguageID" Type="Int32" />
+          <Property Name="RagaID" Type="Int32" />
+          <Property Name="TalaID" Type="Int32" />
+          <Property Name="ComposerID" Type="Int32" />
+          <Property Name="MovieID" Type="Int32" />
+          <Property Name="MusicTypeID" Type="Int32" />
+          <Property Name="AppResourceID" Type="Int32" />
+          <NavigationProperty Name="AppResource" Relationship="Self.FK__Compositi__AppRe__719CDDE7" FromRole="Composition" ToRole="AppResource" />
+          <NavigationProperty Name="Artist" Relationship="Self.FK__Compositi__Compo__6DCC4D03" FromRole="Composition" ToRole="Artist" />
+          <NavigationProperty Name="CompositionAlaps" Relationship="Self.FK__Compositi__Compo__74794A92" FromRole="Composition" ToRole="CompositionAlap" />
+          <NavigationProperty Name="CompositionNotations" Relationship="Self.FK__Compositi__Compo__793DFFAF" FromRole="Composition" ToRole="CompositionNotations" />
+          <NavigationProperty Name="Language" Relationship="Self.FK__Compositi__Langu__6AEFE058" FromRole="Composition" ToRole="Languages" />
+          <NavigationProperty Name="Movie" Relationship="Self.FK__Compositi__Movie__6EC0713C" FromRole="Composition" ToRole="Movie" />
+          <NavigationProperty Name="MusicType" Relationship="Self.FK__Compositi__Music__6FB49575" FromRole="Composition" ToRole="MusicType" />
+          <NavigationProperty Name="Raaga" Relationship="Self.FK__Compositi__RagaI__6BE40491" FromRole="Composition" ToRole="Raaga" />
+          <NavigationProperty Name="Tala" Relationship="Self.FK__Compositi__TalaI__6CD828CA" FromRole="Composition" ToRole="Tala" />
+          <NavigationProperty Name="Performances" Relationship="Self.FK__Performan__Compo__7E02B4CC" FromRole="Composition" ToRole="Performance" />
+        </EntityType>
+        <EntityType Name="CompositionAlap">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LineNumber" Type="Int32" />
+          <Property Name="Notations" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CompositionID" Type="Int32" />
+          <Property Name="AppResourceID" Type="Int32" />
+          <NavigationProperty Name="AppResource" Relationship="Self.FK__Compositi__AppRe__76619304" FromRole="CompositionAlap" ToRole="AppResource" />
+          <NavigationProperty Name="Composition" Relationship="Self.FK__Compositi__Compo__74794A92" FromRole="CompositionAlap" ToRole="Composition" />
+        </EntityType>
+        <EntityType Name="CompositionNotation">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LineType" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="LineNumber" Type="Int32" />
+          <Property Name="BitNumber" Type="Int32" />
+          <Property Name="Notations" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CompositionID" Type="Int32" />
+          <Property Name="AppResourceID" Type="Int32" />
+          <NavigationProperty Name="AppResource" Relationship="Self.FK__Compositi__AppRe__7B264821" FromRole="CompositionNotations" ToRole="AppResource" />
+          <NavigationProperty Name="Composition" Relationship="Self.FK__Compositi__Compo__793DFFAF" FromRole="CompositionNotations" ToRole="Composition" />
+        </EntityType>
+        <EntityType Name="Language">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LanguageName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LanguageName_en" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Compositions" Relationship="Self.FK__Compositi__Langu__6AEFE058" FromRole="Languages" ToRole="Composition" />
+        </EntityType>
+        <EntityType Name="Movie">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MovieName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ReleaseDate" Type="DateTime" Precision="0" />
+          <Property Name="Casting" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="DirectorID" Type="Int32" />
+          <Property Name="MusicDirectorID" Type="Int32" />
+          <Property Name="AppResourceID" Type="Int32" />
+          <NavigationProperty Name="AppResource" Relationship="Self.FK__Movie__AppResour__625A9A57" FromRole="Movie" ToRole="AppResource" />
+          <NavigationProperty Name="Compositions" Relationship="Self.FK__Compositi__Movie__6EC0713C" FromRole="Movie" ToRole="Composition" />
+        </EntityType>
+        <EntityType Name="MusicalInstrument">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MusicalInstrumentName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MusicalInstrumentDesc" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="AppResourceID" Type="Int32" />
+          <NavigationProperty Name="AppResource" Relationship="Self.FK__MusicalIn__AppRe__4D5F7D71" FromRole="MusicalInstrument" ToRole="AppResource" />
+          <NavigationProperty Name="Performances" Relationship="Self.FK__Performan__Music__7FEAFD3E" FromRole="MusicalInstrument" ToRole="Performance" />
+        </EntityType>
+        <EntityType Name="MusicType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MusicTypeName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MusicTypeDesc" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="AppResourceID" Type="Int32" />
+          <NavigationProperty Name="AppResource" Relationship="Self.FK__MusicType__AppRe__498EEC8D" FromRole="MusicType" ToRole="AppResource" />
+          <NavigationProperty Name="Compositions" Relationship="Self.FK__Compositi__Music__6FB49575" FromRole="MusicType" ToRole="Composition" />
+          <NavigationProperty Name="Raagas" Relationship="Self.FK__Raaga__MusicType__662B2B3B" FromRole="MusicType" ToRole="Raaga" />
+          <NavigationProperty Name="Thaats" Relationship="Self.FK__Thaat__MusicType__503BEA1C" FromRole="MusicType" ToRole="Thaat" />
+        </EntityType>
+        <EntityType Name="Performance">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PerformanceDate" Type="DateTime" Precision="0" />
+          <Property Name="Venue" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ArtistID" Type="Int32" />
+          <Property Name="CompositionID" Type="Int32" />
+          <Property Name="MusicalInstrumentID" Type="Int32" />
+          <Property Name="Notes" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Artist" Relationship="Self.FK__Performan__Artis__7EF6D905" FromRole="Performance" ToRole="Artist" />
+          <NavigationProperty Name="Composition" Relationship="Self.FK__Performan__Compo__7E02B4CC" FromRole="Performance" ToRole="Composition" />
+          <NavigationProperty Name="MusicalInstrument" Relationship="Self.FK__Performan__Music__7FEAFD3E" FromRole="Performance" ToRole="MusicalInstrument" />
+          <NavigationProperty Name="Recordings" Relationship="Self.FK__Recording__Perfo__02C769E9" FromRole="Performance" ToRole="Recording" />
+        </EntityType>
+        <EntityType Name="Raaga">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RaagaName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RaagaTime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Mood" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Aroh" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Avroh" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Pakad" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Vadi" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="Samvadi" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="Swara" Type="String" MaxLength="1500" FixedLength="false" Unicode="true" />
+          <Property Name="ThaatID" Type="Int32" />
+          <Property Name="MusicTypeID" Type="Int32" />
+          <Property Name="AppResourceID" Type="Int32" />
+          <NavigationProperty Name="AppResource" Relationship="Self.FK__Raaga__AppResour__681373AD" FromRole="Raaga" ToRole="AppResource" />
+          <NavigationProperty Name="Compositions" Relationship="Self.FK__Compositi__RagaI__6BE40491" FromRole="Raaga" ToRole="Composition" />
+          <NavigationProperty Name="MusicType" Relationship="Self.FK__Raaga__MusicType__662B2B3B" FromRole="Raaga" ToRole="MusicType" />
+          <NavigationProperty Name="Thaat" Relationship="Self.FK__Raaga__ThaatID__65370702" FromRole="Raaga" ToRole="Thaat" />
+          <Property Name="RaagaDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Recording">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FilePath" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="RecordingFormat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Duration" Type="Int32" />
+          <Property Name="PerformanceID" Type="Int32" />
+          <NavigationProperty Name="Performance" Relationship="Self.FK__Recording__Perfo__02C769E9" FromRole="Recording" ToRole="Performance" />
+        </EntityType>
+        <EntityType Name="Tala">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TalaName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TotalBits" Type="Int32" />
+          <Property Name="TalisAtBits" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="KhalisAtBits" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Bol" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="AppResourceID" Type="Int32" />
+          <NavigationProperty Name="AppResource" Relationship="Self.FK__Tala__AppResourc__55F4C372" FromRole="Tala" ToRole="AppResource" />
+          <NavigationProperty Name="Compositions" Relationship="Self.FK__Compositi__TalaI__6CD828CA" FromRole="Tala" ToRole="Composition" />
+        </EntityType>
+        <EntityType Name="Thaat">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ThaatName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ThaatDesc" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MusicTypeID" Type="Int32" />
+          <Property Name="AppResourceID" Type="Int32" />
+          <NavigationProperty Name="AppResource" Relationship="Self.FK__Thaat__AppResour__5224328E" FromRole="Thaat" ToRole="AppResource" />
+          <NavigationProperty Name="MusicType" Relationship="Self.FK__Thaat__MusicType__503BEA1C" FromRole="Thaat" ToRole="MusicType" />
+          <NavigationProperty Name="Raagas" Relationship="Self.FK__Raaga__ThaatID__65370702" FromRole="Thaat" ToRole="Raaga" />
+        </EntityType>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AppUsers" Relationship="Self.FK__AppUser__RoleID__0697FACD" FromRole="UserRole" ToRole="AppUser" />
+          <NavigationProperty Name="ArtistRoles" Relationship="Self.FK__ArtistRol__RoleI__5E8A0973" FromRole="UserRole" ToRole="ArtistRoles" />
+        </EntityType>
+        <Association Name="FK__Artist__AppResou__5AB9788F">
+          <End Role="AppResource" Type="Self.AppResource" Multiplicity="0..1" />
+          <End Role="Artist" Type="Self.Artist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AppResource">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Artist">
+              <PropertyRef Name="AppResourceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Compositi__AppRe__719CDDE7">
+          <End Role="AppResource" Type="Self.AppResource" Multiplicity="0..1" />
+          <End Role="Composition" Type="Self.Composition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AppResource">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Composition">
+              <PropertyRef Name="AppResourceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Compositi__AppRe__76619304">
+          <End Role="AppResource" Type="Self.AppResource" Multiplicity="0..1" />
+          <End Role="CompositionAlap" Type="Self.CompositionAlap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AppResource">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CompositionAlap">
+              <PropertyRef Name="AppResourceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Compositi__AppRe__7B264821">
+          <End Role="AppResource" Type="Self.AppResource" Multiplicity="0..1" />
+          <End Role="CompositionNotations" Type="Self.CompositionNotation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AppResource">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CompositionNotations">
+              <PropertyRef Name="AppResourceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Movie__AppResour__625A9A57">
+          <End Role="AppResource" Type="Self.AppResource" Multiplicity="0..1" />
+          <End Role="Movie" Type="Self.Movie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AppResource">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Movie">
+              <PropertyRef Name="AppResourceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MusicalIn__AppRe__4D5F7D71">
+          <End Role="AppResource" Type="Self.AppResource" Multiplicity="0..1" />
+          <End Role="MusicalInstrument" Type="Self.MusicalInstrument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AppResource">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MusicalInstrument">
+              <PropertyRef Name="AppResourceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MusicType__AppRe__498EEC8D">
+          <End Role="AppResource" Type="Self.AppResource" Multiplicity="0..1" />
+          <End Role="MusicType" Type="Self.MusicType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AppResource">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MusicType">
+              <PropertyRef Name="AppResourceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Raaga__AppResour__681373AD">
+          <End Role="AppResource" Type="Self.AppResource" Multiplicity="0..1" />
+          <End Role="Raaga" Type="Self.Raaga" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AppResource">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Raaga">
+              <PropertyRef Name="AppResourceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tala__AppResourc__55F4C372">
+          <End Role="AppResource" Type="Self.AppResource" Multiplicity="0..1" />
+          <End Role="Tala" Type="Self.Tala" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AppResource">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Tala">
+              <PropertyRef Name="AppResourceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Thaat__AppResour__5224328E">
+          <End Role="AppResource" Type="Self.AppResource" Multiplicity="0..1" />
+          <End Role="Thaat" Type="Self.Thaat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AppResource">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Thaat">
+              <PropertyRef Name="AppResourceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AppUser__RoleID__0697FACD">
+          <End Role="UserRole" Type="Self.UserRole" Multiplicity="0..1" />
+          <End Role="AppUser" Type="Self.AppUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserRole">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AppUser">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ArtistRol__Artis__5D95E53A">
+          <End Role="Artist" Type="Self.Artist" Multiplicity="0..1" />
+          <End Role="ArtistRoles" Type="Self.ArtistRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artist">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ArtistRoles">
+              <PropertyRef Name="ArtistID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Compositi__Compo__6DCC4D03">
+          <End Role="Artist" Type="Self.Artist" Multiplicity="0..1" />
+          <End Role="Composition" Type="Self.Composition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artist">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Composition">
+              <PropertyRef Name="ComposerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Performan__Artis__7EF6D905">
+          <End Role="Artist" Type="Self.Artist" Multiplicity="0..1" />
+          <End Role="Performance" Type="Self.Performance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artist">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Performance">
+              <PropertyRef Name="ArtistID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ArtistRol__RoleI__5E8A0973">
+          <End Role="UserRole" Type="Self.UserRole" Multiplicity="0..1" />
+          <End Role="ArtistRoles" Type="Self.ArtistRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserRole">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ArtistRoles">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Compositi__Compo__74794A92">
+          <End Role="Composition" Type="Self.Composition" Multiplicity="0..1" />
+          <End Role="CompositionAlap" Type="Self.CompositionAlap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Composition">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CompositionAlap">
+              <PropertyRef Name="CompositionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Compositi__Compo__793DFFAF">
+          <End Role="Composition" Type="Self.Composition" Multiplicity="0..1" />
+          <End Role="CompositionNotations" Type="Self.CompositionNotation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Composition">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CompositionNotations">
+              <PropertyRef Name="CompositionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Compositi__Langu__6AEFE058">
+          <End Role="Languages" Type="Self.Language" Multiplicity="0..1" />
+          <End Role="Composition" Type="Self.Composition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Languages">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Composition">
+              <PropertyRef Name="LanguageID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Compositi__Movie__6EC0713C">
+          <End Role="Movie" Type="Self.Movie" Multiplicity="0..1" />
+          <End Role="Composition" Type="Self.Composition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movie">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Composition">
+              <PropertyRef Name="MovieID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Compositi__Music__6FB49575">
+          <End Role="MusicType" Type="Self.MusicType" Multiplicity="0..1" />
+          <End Role="Composition" Type="Self.Composition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MusicType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Composition">
+              <PropertyRef Name="MusicTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Compositi__RagaI__6BE40491">
+          <End Role="Raaga" Type="Self.Raaga" Multiplicity="0..1" />
+          <End Role="Composition" Type="Self.Composition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Raaga">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Composition">
+              <PropertyRef Name="RagaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Compositi__TalaI__6CD828CA">
+          <End Role="Tala" Type="Self.Tala" Multiplicity="0..1" />
+          <End Role="Composition" Type="Self.Composition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tala">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Composition">
+              <PropertyRef Name="TalaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Performan__Compo__7E02B4CC">
+          <End Role="Composition" Type="Self.Composition" Multiplicity="0..1" />
+          <End Role="Performance" Type="Self.Performance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Composition">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Performance">
+              <PropertyRef Name="CompositionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Performan__Music__7FEAFD3E">
+          <End Role="MusicalInstrument" Type="Self.MusicalInstrument" Multiplicity="0..1" />
+          <End Role="Performance" Type="Self.Performance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MusicalInstrument">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Performance">
+              <PropertyRef Name="MusicalInstrumentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Raaga__MusicType__662B2B3B">
+          <End Role="MusicType" Type="Self.MusicType" Multiplicity="0..1" />
+          <End Role="Raaga" Type="Self.Raaga" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MusicType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Raaga">
+              <PropertyRef Name="MusicTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Thaat__MusicType__503BEA1C">
+          <End Role="MusicType" Type="Self.MusicType" Multiplicity="0..1" />
+          <End Role="Thaat" Type="Self.Thaat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MusicType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Thaat">
+              <PropertyRef Name="MusicTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Recording__Perfo__02C769E9">
+          <End Role="Performance" Type="Self.Performance" Multiplicity="0..1" />
+          <End Role="Recording" Type="Self.Recording" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Performance">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Recording">
+              <PropertyRef Name="PerformanceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Raaga__ThaatID__65370702">
+          <End Role="Thaat" Type="Self.Thaat" Multiplicity="0..1" />
+          <End Role="Raaga" Type="Self.Raaga" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Thaat">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Raaga">
+              <PropertyRef Name="ThaatID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="IndianClassicalMusicEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AppResources" EntityType="Self.AppResource" />
+          <EntitySet Name="AppUsers" EntityType="Self.AppUser" />
+          <EntitySet Name="Artists" EntityType="Self.Artist" />
+          <EntitySet Name="ArtistRoles" EntityType="Self.ArtistRole" />
+          <EntitySet Name="Compositions" EntityType="Self.Composition" />
+          <EntitySet Name="CompositionAlaps" EntityType="Self.CompositionAlap" />
+          <EntitySet Name="CompositionNotations" EntityType="Self.CompositionNotation" />
+          <EntitySet Name="Languages" EntityType="Self.Language" />
+          <EntitySet Name="Movies" EntityType="Self.Movie" />
+          <EntitySet Name="MusicalInstruments" EntityType="Self.MusicalInstrument" />
+          <EntitySet Name="MusicTypes" EntityType="Self.MusicType" />
+          <EntitySet Name="Performances" EntityType="Self.Performance" />
+          <EntitySet Name="Raagas" EntityType="Self.Raaga" />
+          <EntitySet Name="Recordings" EntityType="Self.Recording" />
+          <EntitySet Name="Talas" EntityType="Self.Tala" />
+          <EntitySet Name="Thaats" EntityType="Self.Thaat" />
+          <EntitySet Name="UserRoles" EntityType="Self.UserRole" />
+          <AssociationSet Name="FK__Artist__AppResou__5AB9788F" Association="Self.FK__Artist__AppResou__5AB9788F">
+            <End Role="AppResource" EntitySet="AppResources" />
+            <End Role="Artist" EntitySet="Artists" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Compositi__AppRe__719CDDE7" Association="Self.FK__Compositi__AppRe__719CDDE7">
+            <End Role="AppResource" EntitySet="AppResources" />
+            <End Role="Composition" EntitySet="Compositions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Compositi__AppRe__76619304" Association="Self.FK__Compositi__AppRe__76619304">
+            <End Role="AppResource" EntitySet="AppResources" />
+            <End Role="CompositionAlap" EntitySet="CompositionAlaps" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Compositi__AppRe__7B264821" Association="Self.FK__Compositi__AppRe__7B264821">
+            <End Role="AppResource" EntitySet="AppResources" />
+            <End Role="CompositionNotations" EntitySet="CompositionNotations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Movie__AppResour__625A9A57" Association="Self.FK__Movie__AppResour__625A9A57">
+            <End Role="AppResource" EntitySet="AppResources" />
+            <End Role="Movie" EntitySet="Movies" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MusicalIn__AppRe__4D5F7D71" Association="Self.FK__MusicalIn__AppRe__4D5F7D71">
+            <End Role="AppResource" EntitySet="AppResources" />
+            <End Role="MusicalInstrument" EntitySet="MusicalInstruments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MusicType__AppRe__498EEC8D" Association="Self.FK__MusicType__AppRe__498EEC8D">
+            <End Role="AppResource" EntitySet="AppResources" />
+            <End Role="MusicType" EntitySet="MusicTypes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Raaga__AppResour__681373AD" Association="Self.FK__Raaga__AppResour__681373AD">
+            <End Role="AppResource" EntitySet="AppResources" />
+            <End Role="Raaga" EntitySet="Raagas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tala__AppResourc__55F4C372" Association="Self.FK__Tala__AppResourc__55F4C372">
+            <End Role="AppResource" EntitySet="AppResources" />
+            <End Role="Tala" EntitySet="Talas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Thaat__AppResour__5224328E" Association="Self.FK__Thaat__AppResour__5224328E">
+            <End Role="AppResource" EntitySet="AppResources" />
+            <End Role="Thaat" EntitySet="Thaats" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AppUser__RoleID__0697FACD" Association="Self.FK__AppUser__RoleID__0697FACD">
+            <End Role="UserRole" EntitySet="UserRoles" />
+            <End Role="AppUser" EntitySet="AppUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ArtistRol__Artis__5D95E53A" Association="Self.FK__ArtistRol__Artis__5D95E53A">
+            <End Role="Artist" EntitySet="Artists" />
+            <End Role="ArtistRoles" EntitySet="ArtistRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Compositi__Compo__6DCC4D03" Association="Self.FK__Compositi__Compo__6DCC4D03">
+            <End Role="Artist" EntitySet="Artists" />
+            <End Role="Composition" EntitySet="Compositions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Performan__Artis__7EF6D905" Association="Self.FK__Performan__Artis__7EF6D905">
+            <End Role="Artist" EntitySet="Artists" />
+            <End Role="Performance" EntitySet="Performances" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ArtistRol__RoleI__5E8A0973" Association="Self.FK__ArtistRol__RoleI__5E8A0973">
+            <End Role="UserRole" EntitySet="UserRoles" />
+            <End Role="ArtistRoles" EntitySet="ArtistRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Compositi__Compo__74794A92" Association="Self.FK__Compositi__Compo__74794A92">
+            <End Role="Composition" EntitySet="Compositions" />
+            <End Role="CompositionAlap" EntitySet="CompositionAlaps" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Compositi__Compo__793DFFAF" Association="Self.FK__Compositi__Compo__793DFFAF">
+            <End Role="Composition" EntitySet="Compositions" />
+            <End Role="CompositionNotations" EntitySet="CompositionNotations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Compositi__Langu__6AEFE058" Association="Self.FK__Compositi__Langu__6AEFE058">
+            <End Role="Languages" EntitySet="Languages" />
+            <End Role="Composition" EntitySet="Compositions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Compositi__Movie__6EC0713C" Association="Self.FK__Compositi__Movie__6EC0713C">
+            <End Role="Movie" EntitySet="Movies" />
+            <End Role="Composition" EntitySet="Compositions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Compositi__Music__6FB49575" Association="Self.FK__Compositi__Music__6FB49575">
+            <End Role="MusicType" EntitySet="MusicTypes" />
+            <End Role="Composition" EntitySet="Compositions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Compositi__RagaI__6BE40491" Association="Self.FK__Compositi__RagaI__6BE40491">
+            <End Role="Raaga" EntitySet="Raagas" />
+            <End Role="Composition" EntitySet="Compositions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Compositi__TalaI__6CD828CA" Association="Self.FK__Compositi__TalaI__6CD828CA">
+            <End Role="Tala" EntitySet="Talas" />
+            <End Role="Composition" EntitySet="Compositions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Performan__Compo__7E02B4CC" Association="Self.FK__Performan__Compo__7E02B4CC">
+            <End Role="Composition" EntitySet="Compositions" />
+            <End Role="Performance" EntitySet="Performances" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Performan__Music__7FEAFD3E" Association="Self.FK__Performan__Music__7FEAFD3E">
+            <End Role="MusicalInstrument" EntitySet="MusicalInstruments" />
+            <End Role="Performance" EntitySet="Performances" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Raaga__MusicType__662B2B3B" Association="Self.FK__Raaga__MusicType__662B2B3B">
+            <End Role="MusicType" EntitySet="MusicTypes" />
+            <End Role="Raaga" EntitySet="Raagas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Thaat__MusicType__503BEA1C" Association="Self.FK__Thaat__MusicType__503BEA1C">
+            <End Role="MusicType" EntitySet="MusicTypes" />
+            <End Role="Thaat" EntitySet="Thaats" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Recording__Perfo__02C769E9" Association="Self.FK__Recording__Perfo__02C769E9">
+            <End Role="Performance" EntitySet="Performances" />
+            <End Role="Recording" EntitySet="Recordings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Raaga__ThaatID__65370702" Association="Self.FK__Raaga__ThaatID__65370702">
+            <End Role="Thaat" EntitySet="Thaats" />
+            <End Role="Raaga" EntitySet="Raagas" />
+          </AssociationSet>
+          <EntitySet Name="AppImages" EntityType="ClassicalMusicModel.AppImage" />
+        </EntityContainer>
+        <EntityType Name="AppImage">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Image_For" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Image_For_Id" Type="Int32" />
+          <Property Name="ImageUrl" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ImageUrl_mid" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ImageUrl_small" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ClassicalMusicModelStoreContainer" CdmEntityContainer="IndianClassicalMusicEntities">
+          <EntitySetMapping Name="AppResources">
+            <EntityTypeMapping TypeName="ClassicalMusicModel.AppResource">
+              <MappingFragment StoreEntitySet="AppResource">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="AppResource_name" ColumnName="AppResource_name" />
+                <ScalarProperty Name="AppResource_code" ColumnName="AppResource_code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AppUsers">
+            <EntityTypeMapping TypeName="ClassicalMusicModel.AppUser">
+              <MappingFragment StoreEntitySet="AppUser">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="SubscriptionType" ColumnName="SubscriptionType" />
+                <ScalarProperty Name="JoinDate" ColumnName="JoinDate" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Artists">
+            <EntityTypeMapping TypeName="ClassicalMusicModel.Artist">
+              <MappingFragment StoreEntitySet="Artist">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ArtistName" ColumnName="ArtistName" />
+                <ScalarProperty Name="Biography" ColumnName="Biography" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="AppResourceID" ColumnName="AppResourceID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ArtistRoles">
+            <EntityTypeMapping TypeName="ClassicalMusicModel.ArtistRole">
+              <MappingFragment StoreEntitySet="ArtistRoles">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ArtistID" ColumnName="ArtistID" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Compositions">
+            <EntityTypeMapping TypeName="ClassicalMusicModel.Composition">
+              <MappingFragment StoreEntitySet="Composition">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Lyrics" ColumnName="Lyrics" />
+                <ScalarProperty Name="LanguageID" ColumnName="LanguageID" />
+                <ScalarProperty Name="RagaID" ColumnName="RagaID" />
+                <ScalarProperty Name="TalaID" ColumnName="TalaID" />
+                <ScalarProperty Name="ComposerID" ColumnName="ComposerID" />
+                <ScalarProperty Name="MovieID" ColumnName="MovieID" />
+                <ScalarProperty Name="MusicTypeID" ColumnName="MusicTypeID" />
+                <ScalarProperty Name="AppResourceID" ColumnName="AppResourceID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CompositionAlaps">
+            <EntityTypeMapping TypeName="ClassicalMusicModel.CompositionAlap">
+              <MappingFragment StoreEntitySet="CompositionAlap">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="LineNumber" ColumnName="LineNumber" />
+                <ScalarProperty Name="Notations" ColumnName="Notations" />
+                <ScalarProperty Name="CompositionID" ColumnName="CompositionID" />
+                <ScalarProperty Name="AppResourceID" ColumnName="AppResourceID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CompositionNotations">
+            <EntityTypeMapping TypeName="ClassicalMusicModel.CompositionNotation">
+              <MappingFragment StoreEntitySet="CompositionNotations">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="LineType" ColumnName="LineType" />
+                <ScalarProperty Name="LineNumber" ColumnName="LineNumber" />
+                <ScalarProperty Name="BitNumber" ColumnName="BitNumber" />
+                <ScalarProperty Name="Notations" ColumnName="Notations" />
+                <ScalarProperty Name="CompositionID" ColumnName="CompositionID" />
+                <ScalarProperty Name="AppResourceID" ColumnName="AppResourceID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Languages">
+            <EntityTypeMapping TypeName="ClassicalMusicModel.Language">
+              <MappingFragment StoreEntitySet="Languages">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="LanguageName" ColumnName="LanguageName" />
+                <ScalarProperty Name="LanguageName_en" ColumnName="LanguageName_en" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Movies">
+            <EntityTypeMapping TypeName="ClassicalMusicModel.Movie">
+              <MappingFragment StoreEntitySet="Movie">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="MovieName" ColumnName="MovieName" />
+                <ScalarProperty Name="ReleaseDate" ColumnName="ReleaseDate" />
+                <ScalarProperty Name="Casting" ColumnName="Casting" />
+                <ScalarProperty Name="DirectorID" ColumnName="DirectorID" />
+                <ScalarProperty Name="MusicDirectorID" ColumnName="MusicDirectorID" />
+                <ScalarProperty Name="AppResourceID" ColumnName="AppResourceID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MusicalInstruments">
+            <EntityTypeMapping TypeName="ClassicalMusicModel.MusicalInstrument">
+              <MappingFragment StoreEntitySet="MusicalInstrument">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="MusicalInstrumentName" ColumnName="MusicalInstrumentName" />
+                <ScalarProperty Name="MusicalInstrumentDesc" ColumnName="MusicalInstrumentDesc" />
+                <ScalarProperty Name="AppResourceID" ColumnName="AppResourceID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MusicTypes">
+            <EntityTypeMapping TypeName="ClassicalMusicModel.MusicType">
+              <MappingFragment StoreEntitySet="MusicType">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="MusicTypeName" ColumnName="MusicTypeName" />
+                <ScalarProperty Name="MusicTypeDesc" ColumnName="MusicTypeDesc" />
+                <ScalarProperty Name="AppResourceID" ColumnName="AppResourceID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Performances">
+            <EntityTypeMapping TypeName="ClassicalMusicModel.Performance">
+              <MappingFragment StoreEntitySet="Performance">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PerformanceDate" ColumnName="PerformanceDate" />
+                <ScalarProperty Name="Venue" ColumnName="Venue" />
+                <ScalarProperty Name="ArtistID" ColumnName="ArtistID" />
+                <ScalarProperty Name="CompositionID" ColumnName="CompositionID" />
+                <ScalarProperty Name="MusicalInstrumentID" ColumnName="MusicalInstrumentID" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Raagas">
+            <EntityTypeMapping TypeName="ClassicalMusicModel.Raaga">
+              <MappingFragment StoreEntitySet="Raaga">
+                <ScalarProperty Name="RaagaDesc" ColumnName="RaagaDesc" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="RaagaName" ColumnName="RaagaName" />
+                <ScalarProperty Name="RaagaTime" ColumnName="RaagaTime" />
+                <ScalarProperty Name="Mood" ColumnName="Mood" />
+                <ScalarProperty Name="Aroh" ColumnName="Aroh" />
+                <ScalarProperty Name="Avroh" ColumnName="Avroh" />
+                <ScalarProperty Name="Pakad" ColumnName="Pakad" />
+                <ScalarProperty Name="Vadi" ColumnName="Vadi" />
+                <ScalarProperty Name="Samvadi" ColumnName="Samvadi" />
+                <ScalarProperty Name="Swara" ColumnName="Swara" />
+                <ScalarProperty Name="ThaatID" ColumnName="ThaatID" />
+                <ScalarProperty Name="MusicTypeID" ColumnName="MusicTypeID" />
+                <ScalarProperty Name="AppResourceID" ColumnName="AppResourceID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Recordings">
+            <EntityTypeMapping TypeName="ClassicalMusicModel.Recording">
+              <MappingFragment StoreEntitySet="Recording">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+                <ScalarProperty Name="RecordingFormat" ColumnName="RecordingFormat" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="PerformanceID" ColumnName="PerformanceID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Talas">
+            <EntityTypeMapping TypeName="ClassicalMusicModel.Tala">
+              <MappingFragment StoreEntitySet="Tala">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TalaName" ColumnName="TalaName" />
+                <ScalarProperty Name="TotalBits" ColumnName="TotalBits" />
+                <ScalarProperty Name="TalisAtBits" ColumnName="TalisAtBits" />
+                <ScalarProperty Name="KhalisAtBits" ColumnName="KhalisAtBits" />
+                <ScalarProperty Name="Bol" ColumnName="Bol" />
+                <ScalarProperty Name="AppResourceID" ColumnName="AppResourceID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Thaats">
+            <EntityTypeMapping TypeName="ClassicalMusicModel.Thaat">
+              <MappingFragment StoreEntitySet="Thaat">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ThaatName" ColumnName="ThaatName" />
+                <ScalarProperty Name="ThaatDesc" ColumnName="ThaatDesc" />
+                <ScalarProperty Name="MusicTypeID" ColumnName="MusicTypeID" />
+                <ScalarProperty Name="AppResourceID" ColumnName="AppResourceID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserRoles">
+            <EntityTypeMapping TypeName="ClassicalMusicModel.UserRole">
+              <MappingFragment StoreEntitySet="UserRole">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AppImages">
+            <EntityTypeMapping TypeName="ClassicalMusicModel.AppImage">
+              <MappingFragment StoreEntitySet="AppImages">
+                <ScalarProperty Name="ImageUrl_small" ColumnName="ImageUrl_small" />
+                <ScalarProperty Name="ImageUrl_mid" ColumnName="ImageUrl_mid" />
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+                <ScalarProperty Name="Image_For_Id" ColumnName="Image_For_Id" />
+                <ScalarProperty Name="Image_For" ColumnName="Image_For" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

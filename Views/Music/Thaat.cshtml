@@ -1,0 +1,31 @@
+﻿@model IEnumerable<ClassicalMusicApp.Models.Thaat>
+
+@{
+    ViewBag.Title = "Thaat";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Thaat</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ThaatName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ThaatDesc)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink(item.ThaatName, "RaagasOfThaat", "Music", new { item.ID }, null)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ThaatDesc)
+        </td>
+    </tr>
+}
+
+</table>

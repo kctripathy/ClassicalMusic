@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1e4ce7572ab642978c770496d8336ac0" Name="Diagram1">
+        <EntityTypeShape EntityType="ClassicalMusicModel.AppResource" Width="1.5" PointX="0.75" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClassicalMusicModel.AppUser" Width="1.5" PointX="5.25" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClassicalMusicModel.Artist" Width="1.5" PointX="3" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClassicalMusicModel.ArtistRole" Width="1.5" PointX="5.25" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClassicalMusicModel.Composition" Width="1.5" PointX="5.25" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClassicalMusicModel.CompositionAlap" Width="1.5" PointX="7.5" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClassicalMusicModel.CompositionNotation" Width="1.5" PointX="10.5" PointY="16.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClassicalMusicModel.Language" Width="1.5" PointX="3" PointY="26.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClassicalMusicModel.Movie" Width="1.5" PointX="3" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClassicalMusicModel.MusicalInstrument" Width="1.5" PointX="3" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClassicalMusicModel.MusicType" Width="1.5" PointX="3" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClassicalMusicModel.Performance" Width="1.5" PointX="10.5" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClassicalMusicModel.Raaga" Width="1.5" PointX="8.25" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClassicalMusicModel.Recording" Width="1.5" PointX="12.75" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClassicalMusicModel.Tala" Width="1.5" PointX="3" PointY="23" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClassicalMusicModel.Thaat" Width="1.5" PointX="5.25" PointY="21.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClassicalMusicModel.UserRole" Width="1.5" PointX="3" PointY="6.25" IsExpanded="true" />
+        <AssociationConnector Association="ClassicalMusicModel.FK__Artist__AppResou__5AB9788F" ManuallyRouted="false" />
+        <AssociationConnector Association="ClassicalMusicModel.FK__Compositi__AppRe__719CDDE7" ManuallyRouted="false" />
+        <AssociationConnector Association="ClassicalMusicModel.FK__Compositi__AppRe__76619304" ManuallyRouted="false" />
+        <AssociationConnector Association="ClassicalMusicModel.FK__Compositi__AppRe__7B264821" ManuallyRouted="false" />
+        <AssociationConnector Association="ClassicalMusicModel.FK__Movie__AppResour__625A9A57" ManuallyRouted="false" />
+        <AssociationConnector Association="ClassicalMusicModel.FK__MusicalIn__AppRe__4D5F7D71" ManuallyRouted="false" />
+        <AssociationConnector Association="ClassicalMusicModel.FK__MusicType__AppRe__498EEC8D" ManuallyRouted="false" />
+        <AssociationConnector Association="ClassicalMusicModel.FK__Raaga__AppResour__681373AD" ManuallyRouted="false" />
+        <AssociationConnector Association="ClassicalMusicModel.FK__Tala__AppResourc__55F4C372" ManuallyRouted="false" />
+        <AssociationConnector Association="ClassicalMusicModel.FK__Thaat__AppResour__5224328E" ManuallyRouted="false" />
+        <AssociationConnector Association="ClassicalMusicModel.FK__AppUser__RoleID__0697FACD" ManuallyRouted="false" />
+        <AssociationConnector Association="ClassicalMusicModel.FK__ArtistRol__Artis__5D95E53A" ManuallyRouted="false" />
+        <AssociationConnector Association="ClassicalMusicModel.FK__Compositi__Compo__6DCC4D03" ManuallyRouted="false" />
+        <AssociationConnector Association="ClassicalMusicModel.FK__Performan__Artis__7EF6D905" ManuallyRouted="false" />
+        <AssociationConnector Association="ClassicalMusicModel.FK__ArtistRol__RoleI__5E8A0973" ManuallyRouted="false" />
+        <AssociationConnector Association="ClassicalMusicModel.FK__Compositi__Compo__74794A92" ManuallyRouted="false" />
+        <AssociationConnector Association="ClassicalMusicModel.FK__Compositi__Compo__793DFFAF" ManuallyRouted="false" />
+        <AssociationConnector Association="ClassicalMusicModel.FK__Compositi__Langu__6AEFE058" ManuallyRouted="false" />
+        <AssociationConnector Association="ClassicalMusicModel.FK__Compositi__Movie__6EC0713C" ManuallyRouted="false" />
+        <AssociationConnector Association="ClassicalMusicModel.FK__Compositi__Music__6FB49575" ManuallyRouted="false" />
+        <AssociationConnector Association="ClassicalMusicModel.FK__Compositi__RagaI__6BE40491" ManuallyRouted="false" />
+        <AssociationConnector Association="ClassicalMusicModel.FK__Compositi__TalaI__6CD828CA" ManuallyRouted="false" />
+        <AssociationConnector Association="ClassicalMusicModel.FK__Performan__Compo__7E02B4CC" ManuallyRouted="false" />
+        <AssociationConnector Association="ClassicalMusicModel.FK__Performan__Music__7FEAFD3E" ManuallyRouted="false" />
+        <AssociationConnector Association="ClassicalMusicModel.FK__Raaga__MusicType__662B2B3B" ManuallyRouted="false" />
+        <AssociationConnector Association="ClassicalMusicModel.FK__Thaat__MusicType__503BEA1C" ManuallyRouted="false" />
+        <AssociationConnector Association="ClassicalMusicModel.FK__Recording__Perfo__02C769E9" ManuallyRouted="false" />
+        <AssociationConnector Association="ClassicalMusicModel.FK__Raaga__ThaatID__65370702" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ClassicalMusicModel.AppImage" Width="1.5" PointX="0.75" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

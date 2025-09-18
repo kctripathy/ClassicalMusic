@@ -1,0 +1,39 @@
+﻿/* Set padding to keep content from hitting the edges */
+* {
+    font-family: Roboto, 'Sans Serif Collection';
+}
+
+.body-content {
+    margin-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/*****************************************************/
+#homepage_main_section > section {
+    height: 300px;
+    padding: 5px;
+    border-top: solid 1px #808080;
+    border-bottom: solid 1px #808080;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.artist-name-homepage {
+    border-bottom: solid 1px #cc4f4f;
+    font-size: 0.9em;
+}
