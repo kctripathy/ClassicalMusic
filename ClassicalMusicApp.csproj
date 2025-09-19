@@ -192,17 +192,36 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Labels.or.resx</DependentUpon>
     </Compile>
+    <Compile Include="App_GlobalResources\Swara.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Swara.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Swara.hi.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Swara.hi.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Swara.or.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Swara.or.resx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="CommonFunctions.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LanguageController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MusicController.cs" />
+    <Compile Include="Controllers\RaagaController.cs" />
+    <Compile Include="Controllers\TalaController.cs" />
+    <Compile Include="Controllers\ThaatController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -217,6 +236,9 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AppDocuments.cs">
+      <DependentUpon>ClassicalMusicDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\AppImage.cs">
       <DependentUpon>ClassicalMusicDataModel.tt</DependentUpon>
     </Compile>
@@ -231,6 +253,18 @@
       <DependentUpon>ClassicalMusicDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ArtistRole.cs">
+      <DependentUpon>ClassicalMusicDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetRoles.cs">
+      <DependentUpon>ClassicalMusicDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUserClaims.cs">
+      <DependentUpon>ClassicalMusicDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUserLogins.cs">
+      <DependentUpon>ClassicalMusicDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUsers.cs">
       <DependentUpon>ClassicalMusicDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ClassicalMusicDataModel.Context.cs">
@@ -291,8 +325,10 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\RaagaDetailsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\AppStyles.css" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
@@ -395,14 +431,21 @@
     <Content Include="Views\Music\Raagas.cshtml" />
     <Content Include="Views\Music\RaagasOfThaat.cshtml" />
     <Content Include="Views\Music\RaagaDetails.cshtml" />
-    <Content Include="Views\Home\RaagaOfTheDay.cshtml" />
+    <Content Include="Views\Home\_RaagaOfTheDay.cshtml" />
     <Content Include="Views\Shared\_LanguageSelector.cshtml" />
+    <Content Include="Views\Thaat\Index.cshtml" />
+    <Content Include="Views\Raaga\Index.cshtml" />
+    <Content Include="Views\Tala\Index.cshtml" />
+    <Content Include="Views\Raaga\Details.cshtml" />
+    <Content Include="Views\Thaat\Details.cshtml" />
+    <Content Include="Views\Home\_ArtistOfTheDay.cshtml" />
+    <Content Include="Views\Home\_LatestAdditions.cshtml" />
+    <Content Include="Views\Home\_EminentGurus.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Images\Artists\" />
     <Folder Include="Images\Raaga\" />
-    <Folder Include="ViewModels\" />
     <Folder Include="Views\Language\" />
     <Folder Include="Views\Partials\" />
   </ItemGroup>
@@ -437,6 +480,18 @@
     <Content Include="App_GlobalResources\Labels.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>Labels.Designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Swara.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Swara.Designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Swara.or.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Swara.or.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Swara.hi.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Swara.hi.designer.cs</LastGenOutput>
     </Content>
     <EmbeddedResource Include="Migrations\202509171027324_ClassicalMusicMigration.resx">
       <DependentUpon>202509171027324_ClassicalMusicMigration.cs</DependentUpon>

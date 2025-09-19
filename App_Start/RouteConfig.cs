@@ -14,10 +14,24 @@ namespace ClassicalMusicApp
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "RaagaDetails",
+                url: "raaga/{name}",
+                defaults: new { controller = "Raaga", action = "Details" }
+            );
+
+            routes.MapRoute(
+                name: "ThaatDetails",
+                url: "thaat/{name}",
+                defaults: new { controller = "Thaat", action = "Details" }
+            );
+
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
         }
     }
 }

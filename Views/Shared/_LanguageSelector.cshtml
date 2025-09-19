@@ -5,8 +5,8 @@
     <form action="@Url.Action("Change", "Language")" method="get" id="langForm">
         <select name="lang" onchange="document.getElementById('langForm').submit();">
             <option value="en" @(currentLang == "en" ? "selected" : "")>English</option>
-            <option value="hi" @(currentLang == "hi" ? "selected" : "")>हिंदी</option>
-            <option value="or" @(currentLang == "or" ? "selected" : "")>ଓଡିଆ</option>
+            @*<option value="hi" @(currentLang == "hi" ? "selected" : "")>हिंदी</option>
+            <option value="or" @(currentLang == "or" ? "selected" : "")>ଓଡିଆ</option>*@
         </select>
     </form>
 </div>

@@ -117,64 +117,34 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="HomePageSubTitle" xml:space="preserve">
-    <value>Discover the world of classical music</value>
+  <data name="D" xml:space="preserve">
+    <value>ଧ</value>
   </data>
-  <data name="WebTitle" xml:space="preserve">
-    <value>Classical Music</value>
+  <data name="G" xml:space="preserve">
+    <value>ଗ</value>
   </data>
-  <data name="HomePageTitle" xml:space="preserve">
-    <value>Welcome to the world of Classical Music</value>
+  <data name="M" xml:space="preserve">
+    <value>ମ</value>
   </data>
-  <data name="HomePageSubSubTitle" xml:space="preserve">
-    <value>Dive into the soulful world of ragas, rhythms, and traditions. Explore how music connects us across generations.</value>
+  <data name="N" xml:space="preserve">
+    <value>ନି</value>
   </data>
-  <data name="SectionHead_2" xml:space="preserve">
-    <value>Artist of the Day</value>
+  <data name="P" xml:space="preserve">
+    <value>ପ</value>
   </data>
-  <data name="SectionHead_1" xml:space="preserve">
-    <value>Raag of the Day</value>
+  <data name="R" xml:space="preserve">
+    <value>ରେ</value>
   </data>
-  <data name="SectionHead_3" xml:space="preserve">
-    <value>Latest additions to this website</value>
+  <data name="S" xml:space="preserve">
+    <value>ସା</value>
   </data>
-  <data name="Menu_Thaat" xml:space="preserve">
-    <value>Thaat</value>
+  <data name="Ḿ" xml:space="preserve">
+    <value>ର୍ମ</value>
   </data>
-  <data name="Menu_Raag" xml:space="preserve">
-    <value>Raaga</value>
+  <data name="Ṇ" xml:space="preserve">
+    <value>ନ଼ି</value>
   </data>
-  <data name="Menu_Tala" xml:space="preserve">
-    <value>Tala</value>
-  </data>
-  <data name="Menu_Artist" xml:space="preserve">
-    <value>Artist</value>
-  </data>
-  <data name="Menu_Compositions" xml:space="preserve">
-    <value>Compositions</value>
-  </data>
-  <data name="Menu_Download" xml:space="preserve">
-    <value>Download</value>
-  </data>
-  <data name="Menu_Contact" xml:space="preserve">
-    <value>Contact us</value>
-  </data>
-  <data name="Menu_About" xml:space="preserve">
-    <value>About us</value>
-  </data>
-  <data name="SectionHead_4" xml:space="preserve">
-    <value>Latest additions to the website</value>
-  </data>
-  <data name="Menu_Signin" xml:space="preserve">
-    <value>Signin</value>
-  </data>
-  <data name="Menu_Register" xml:space="preserve">
-    <value>Register</value>
-  </data>
-  <data name="Menu_Hello" xml:space="preserve">
-    <value>Hello</value>
-  </data>
-  <data name="Menu_LogOff" xml:space="preserve">
-    <value>LogOff</value>
+  <data name="Ṡ" xml:space="preserve">
+    <value>ର୍ସା</value>
   </data>
 </root>

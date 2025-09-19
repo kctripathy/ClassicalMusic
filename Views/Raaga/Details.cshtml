@@ -1,0 +1,100 @@
+﻿@*@using System.Resources*@
+
+@model ClassicalMusicApp.ViewModels.RaagaDetailsViewModel
+@{
+    ViewBag.Title = String.Concat("Raaga ", @Model.raaga.RaagaName);
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    CommonFunctions commonFunction = new CommonFunctions();
+    //ResourceManager rm = Resources.Swara.ResourceManager;
+}
+
+<div class="page-header">
+    <a href="/raaga" style="margin-left: -30px;"><i class="bi bi-chevron-left"></i></a>Raaga <span class="page-header-highlight">@Model.raaga.RaagaName</span>
+</div>
+
+<div class="row">
+    <div class="col-lg-6">
+        <table>
+            <tbody>
+                <tr>
+                    <td colspan="2" style="padding: 0px 50px 10px 0px;">@Model.raaga.RaagaDesc</td>
+                </tr>
+                <tr>
+                    <td class="table-label">Thaat</td>
+                    <td class="table-value">
+                        @Html.ActionLink(Model.raaga.Thaat.ThaatName, "Details", "Thaat", new { name = Model.raaga.Thaat.ThaatName.ToLower() }, null)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="table-label">Aroh</td>
+                    <td class="table-value">
+                        @*@{
+                    var chars = Model.raaga.Aroh.Split(' ');
+                    foreach (var c in chars)
+                    {
+                        var swara = String.Concat(rm.GetString(c), " ");
+                        @swara;
+                    }
+                }*@
+
+                        @Model.raaga.Aroh
+                    </td>
+                </tr>
+                <tr>
+                    <td class="table-label">Avroh</td>
+                    <td class="table-value">@Model.raaga.Avroh</td>
+                </tr>
+                <tr>
+                    <td class="table-label">Pakad</td>
+                    <td class="table-value">@Model.raaga.Pakad</td>
+                </tr>
+                <tr>
+                    <td class="table-label">Vadi</td>
+                    <td class="table-value">@Model.raaga.Vadi </td>
+                </tr>
+                <tr>
+                    <td class="table-label">Samvadi</td>
+                    <td class="table-value">@Model.raaga.Samvadi</td>
+                </tr>
+                <tr>
+                    <td class="table-label">Time</td>
+                    <td class="table-value">@Model.raaga.RaagaTime</td>
+                </tr>
+                <tr>
+                    <td class="table-label">Mood</td>
+                    <td class="table-value">@Model.raaga.Mood</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+    <div class="col-lg-6">
+        <div class="page-section-sub-heading">Compositions in Raag @Model.raaga.RaagaName</div>
+        <table id="raga-composition-table" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Composer</th>
+                    <th>Movie</th>
+                </tr>
+            </thead>
+
+            @foreach (var composition in Model.compositions)
+            {
+                <tbody>
+                    <tr>
+                        <td>
+                            @Html.ActionLink(@composition.Title, "Details", "Composition", new { id = composition.ID }, null)
+                        </td>
+                        <td>
+                            @Html.ActionLink(@composition.Artist.ArtistName, "Details", "Artist", new { id = composition.Artist.ID }, null)
+                        </td>
+                        <td>
+                            @Html.ActionLink(@composition.Movie.MovieName, "Details", "Artist", new { id = composition.Movie.ID }, null)
+                        </td>
+                    </tr>
+                </tbody>
+            }
+        </table>
+    </div>
+</div>

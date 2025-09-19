@@ -61,7 +61,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dive into the soulful world of ragas, rhythms, and traditions. From ancient melodies to contemporary interpretations, explore how music connects us across generations..
+        ///   Looks up a localized string similar to Dive into the soulful world of ragas, rhythms, and traditions. Explore how music connects us across generations..
         /// </summary>
         internal static string HomePageSubSubTitle {
             get {
@@ -79,7 +79,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Welcome to the world of Music.
+        ///   Looks up a localized string similar to Welcome to the world of Classical Music.
         /// </summary>
         internal static string HomePageTitle {
             get {
@@ -205,7 +205,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Artist of the Month.
+        ///   Looks up a localized string similar to Artist of the Day.
         /// </summary>
         internal static string SectionHead_2 {
             get {
@@ -223,7 +223,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Learn / Tutorials.
+        ///   Looks up a localized string similar to Latest additions to the website.
         /// </summary>
         internal static string SectionHead_4 {
             get {

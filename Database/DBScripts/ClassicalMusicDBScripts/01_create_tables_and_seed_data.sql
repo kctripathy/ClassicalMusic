@@ -203,6 +203,12 @@ CREATE TABLE Composition (
 	FOREIGN KEY (AppResourceID) REFERENCES AppResource(ID)
 );
 
+ALTER TABLE Composition ADD IsActive BIT DEFAULT(1);
+ALTER TABLE Composition ADD AddedBy INT DEFAULT(1);
+ALTER TABLE Composition ADD AddedDate DATETIME DEFAULT(GETDATE());
+ALTER TABLE Composition ADD ModifiedBy INT;
+ALTER TABLE Composition ADD ModifiedDate DATETIME;
+
 INSERT Composition (Title, RagaID, TalaID, ComposerID, MovieID, MusicTypeID, LanguageID) 
 VALUES (N'Eri aali piya bina', 1, 1, 1, 1, 7, 2);
 
@@ -279,3 +285,11 @@ CREATE TABLE AppImages (
 INSERT INTO AppImages (Image_For,Image_For_Id, ImageUrl) VALUES
 ('Artist',1,'Music_Director_Roshan.jpg'),
 ('Artist',4,'Hariprasad_Chaurasia_1.jpg');
+
+
+CREATE TABLE AppDocuments (
+    ID INT PRIMARY KEY IDENTITY(1,1),
+	Document_For VARCHAR(100) NULL, --TABLE
+	Document_For_Id INT,
+    DocumentUrl VARCHAR(1500) NULL 
+);

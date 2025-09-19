@@ -1,40 +1,26 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Classical Music - Raag, Tala, Compositions, Lyrics, Notations, etc.";
 }
 
 <main>
-    <section class="row" aria-labelledby="aspnetTitle">
-
-        <h1 id="title">@Resources.Labels.HomePageTitle</h1>
-        <h2 class="home-sub-title">@Resources.Labels.HomePageSubTitle</h2>
+    <div class="row">
+        <h1 id="title" class="page-header">@Resources.Labels.HomePageTitle</h1>
         <p class="lead">@Resources.Labels.HomePageSubSubTitle</p>
-        @*<p><a href="/Home/About" class="btn btn-primary btn-md">Learn more &raquo;</a></p>*@
-    </section>
+    </div>
 
     <div class="row" id="homepage_main_section">
-        <section class="col-md-4" aria-labelledby="gettingStartedTitle">
+        <section class="col-md-4">
             @Html.Action("RaagaOfTheDay", "Home")
         </section>
-        <section class="col-md-4" aria-labelledby="librariesTitle">
-            <h2 id="librariesTitle">Artist of the Month</h2>
-            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+        <section class="col-md-4">
+            @Html.Action("ArtistOfTheDay", "Home")
         </section>
-        <section class="col-md-4" aria-labelledby="hostingTitle">
-            <h2 id="hostingTitle">Learn / Tutorials</h2>
-            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+        <section class="col-md-4">
+            @Html.Action("LatestAdditions", "Home")
         </section>
     </div>
-    <div class="row text-center mt-4">
-            <h2>Meet the Gurus</h2>
-            <h6>Where Notes Speak Beyond Words</h6>
-            @for (int x = 1; x < 50; x++)
-            {
-                <div class="col-3 m-0 p-2 text-center">
-                    <img src="https://itcsra.org/wp-content/uploads/2024/03/Pandit-Ajoy-Chakrabarty.png" class="img-fluid rounded-circle m-2 p-2" />
-                    <span class="artist-name-homepage">Artist @x</span>
-                </div>
-            } 
-    </div>
-    
 
+    <div class="row text-center mt-4">
+        @Html.Action("EminentGurus", "Home")
+    </div>
 </main>

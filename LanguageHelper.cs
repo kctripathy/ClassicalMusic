@@ -20,11 +20,11 @@ public class LanguageHelper
         }
     }
 
-    public static int GetCurrenAppResourceId()
+    public static int? GetCurrenAppResourceId()
     {
         HttpCookie langCookie = HttpContext.Current.Request.Cookies["lang"];
         string currentLanguage = langCookie != null ? langCookie.Value : "en";
-        int langId = 0;
+        int? langId = 0;
         switch(currentLanguage)
         {
             case "en": langId = 1; break;

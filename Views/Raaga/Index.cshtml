@@ -1,0 +1,73 @@
+﻿
+@model IEnumerable<ClassicalMusicApp.Models.Raaga>
+@{
+    ViewBag.Title = "Raaga";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    CommonFunctions c = new CommonFunctions();    
+}
+
+<h2 class="page-header">Raaga</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RaagaName)
+        </th>
+        <th>
+            Thaat
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Vadi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Samvadi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Aroh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Avroh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RaagaTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mood)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink(item.RaagaName, "Details", "Raaga", new { name = item.RaagaName.ToLower() }, null)
+                @*@Html.ActionLink(item.RaagaName, "", "Raaga", new { id = item.RaagaName }, null)*@
+            </td>
+            <td>
+                @{
+                    var thaatName = c.GetThaatNameByID(item.ThaatID);
+                    @thaatName;
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vadi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Samvadi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Aroh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Avroh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RaagaTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mood)
+            </td>
+        </tr>
+    }
+
+</table>
+

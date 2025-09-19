@@ -34,10 +34,10 @@ namespace ClassicalMusicApp.Controllers
         [OutputCache(Duration = 86400, VaryByParam = "none", VaryByCustom = "Daily")]
         public PartialViewResult RaagaOfTheDay()
         {
-            int appResId = LanguageHelper.GetCurrenAppResourceId();
+            int? appResId = LanguageHelper.GetCurrenAppResourceId();
 
             var random = new Random();
-            var raagas = db.Raagas.Where(r=> r.AppResourceID == appResId).ToList();
+            var raagas = db.Raagas.AsNoTracking().Where(r=> r.AppResourceID == appResId).ToList();
             if (raagas.Count == 0)
             {
                 raagas = db.Raagas.Where(r => r.AppResourceID == 1).ToList();
@@ -45,7 +45,53 @@ namespace ClassicalMusicApp.Controllers
 
             var raaga = raagas[random.Next(raagas.Count)];
 
-            return PartialView(raaga);
+            return PartialView("_RaagaOfTheDay",raaga);
+        }
+
+        [ChildActionOnly]
+        [OutputCache(Duration = 86400, VaryByParam = "none", VaryByCustom = "Daily")]
+        public PartialViewResult ArtistOfTheDay()
+        {
+            int? appResId = LanguageHelper.GetCurrenAppResourceId();
+
+            var random = new Random();
+            var artists = db.Artists.AsNoTracking().ToList();
+            var artist = artists[random.Next(artists.Count)];
+
+            return PartialView("_ArtistOfTheDay", artist);
+        }
+
+        //[ChildActionOnly]
+        //[OutputCache(Duration = 86400, VaryByParam = "none", VaryByCustom = "Daily")]
+        public PartialViewResult LatestAdditions()
+        {
+            //int? appResId = LanguageHelper.GetCurrenAppResourceId();
+
+            //var random = new Random();
+            //var raagas = db.Raagas.Where(r => r.AppResourceID == appResId).ToList();
+            //if (raagas.Count == 0)
+            //{
+            //    raagas = db.Raagas.Where(r => r.AppResourceID == 1).ToList();
+            //}
+
+            //var raaga = raagas[random.Next(raagas.Count)];
+
+            //return PartialView(raaga);
+            return PartialView("_LatestAdditions");
+        }
+
+        //EminentGurus
+        [ChildActionOnly]
+        [OutputCache(Duration = 86400, VaryByParam = "none", VaryByCustom = "Daily")]
+        public PartialViewResult EminentGurus()
+        {
+            int? appResId = LanguageHelper.GetCurrenAppResourceId();
+
+            var random = new Random();
+            var artists = db.Artists.AsNoTracking().ToList();
+            //var artist = artists[random.Next(artists.Count)];
+
+            return PartialView("_EminentGurus", artists);
         }
     }
 }

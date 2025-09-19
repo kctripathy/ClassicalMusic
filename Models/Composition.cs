@@ -32,6 +32,11 @@ namespace ClassicalMusicApp.Models
         public Nullable<int> MovieID { get; set; }
         public Nullable<int> MusicTypeID { get; set; }
         public Nullable<int> AppResourceID { get; set; }
+        public Nullable<bool> IsActive { get; set; }
+        public Nullable<int> AddedBy { get; set; }
+        public Nullable<System.DateTime> AddedDate { get; set; }
+        public Nullable<int> ModifiedBy { get; set; }
+        public Nullable<System.DateTime> ModifiedDate { get; set; }
     
         public virtual AppResource AppResource { get; set; }
         public virtual Artist Artist { get; set; }
