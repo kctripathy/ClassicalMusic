@@ -16,7 +16,7 @@ namespace ClassicalMusicApp.Controllers
         public ActionResult Index()
         {
             int? appResourceId = LanguageHelper.GetCurrenAppResourceId();
-            var ragas = db.Raagas.Where(r=>r.IsActive == true && r.AppResourceID == appResourceId).ToList();
+            var ragas = db.Raagas.AsNoTracking().Where(r=>r.IsActive == true && r.AppResourceID == appResourceId).ToList().OrderBy(r=>r.RaagaName);
             return View(ragas);
         }
 
@@ -26,12 +26,12 @@ namespace ClassicalMusicApp.Controllers
             RaagaDetailsViewModel ragaDetails = new RaagaDetailsViewModel();
             int? appResourceId = LanguageHelper.GetCurrenAppResourceId();
             //var raga = db.Raagas.Where(r => r.IsActive == true && r.AppResourceID == appResourceId && r.RaagaName.ToLower() == name.ToLower()).SingleOrDefault();
-            var raga = db.Raagas.Where(r => r.IsActive == true && r.RaagaName.ToLower() == name.ToLower()).SingleOrDefault();
+            var raga = db.Raagas.AsNoTracking().Where(r => r.IsActive == true && r.RaagaName.ToLower() == name.ToLower()).SingleOrDefault();
 
             ragaDetails.raaga = raga;
-            ragaDetails.compositions = db.Compositions.Where(c => c.IsActive == true && c.AppResourceID == appResourceId && c.RagaID == raga.ID).ToList();
-            ragaDetails.appImages = db.AppImages.Where(i=> i.Image_For == "Raaga" && i.Image_For_Id == raga.ID).ToList();
-            ragaDetails.appDocuments = db.AppDocuments.Where(i => i.Document_For == "Raaga" && i.Document_For_Id == raga.ID).ToList();
+            ragaDetails.compositions = db.Compositions.AsNoTracking().Where(c => c.IsActive == true && c.AppResourceID == appResourceId && c.RagaID == raga.ID).ToList();
+            ragaDetails.appImages = db.AppImages.AsNoTracking().Where(i=> i.Image_For == "Raaga" && i.Image_For_Id == raga.ID).ToList();
+            ragaDetails.appDocuments = db.AppDocuments.AsNoTracking().Where(i => i.Document_For == "Raaga" && i.Document_For_Id == raga.ID).ToList();
 
             return View(ragaDetails);
         }

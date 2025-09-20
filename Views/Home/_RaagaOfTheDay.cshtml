@@ -1,12 +1,46 @@
 ﻿@model ClassicalMusicApp.Models.Raaga
 
-<h2 class="home-section-header">@Resources.Labels.SectionHead_1 (<span class="page-header-highlight">@Model.RaagaName</span>) </h2>
-<p> @Model.RaagaDesc</p>
-<hr />
-<p>Aroh:@Model.Aroh </p>
-<p>Avroh:@Model.Avroh </p>
-<p>Avroh:@Model.Avroh </p>
-<p>Pakad: @Model.Pakad</p>
-<hr />
-<p>Time: @Model.RaagaTime</p>
-<p>Mood: @Model.Mood</p>
+<h2 class="home-section-header">
+    @Resources.Labels.SectionHead_1 (<a href="/raaga/@Model.RaagaName.ToLower()"><span class="page-header-highlight">@Model.RaagaName</span></a>)
+</h2>
+<div class="gradient-boder">.</div>
+<p class="readMore" style="text-align: justify; padding: 0px 10px; margin: 0px;">
+    @Model.RaagaDesc
+</p>
+<div class="row m-0 p-0">
+    <div class="col-lg-6 fw-bold">Aroh</div>
+    <div class="col-lg-6 fw-bold">Avroh</div>
+</div>
+<div class="row">
+    <div class="col-lg-6">@Model.Aroh</div>
+    <div class="col-lg-6">@Model.Avroh</div>
+</div>
+
+<div class="row m-0 p-0 mt-1">
+    <div class="col-lg-6 fw-bold">Pakad</div>
+    <div class="col-lg-6 fw-bold">Vadi / Samvadi</div>
+</div>
+<div class="row">
+    <div class="col-lg-6">@Model.Pakad</div>
+    <div class="col-lg-6">@Model.Vadi / @Model.Samvadi</div>
+</div>
+<div class="row m-0 p-0 mt-1">
+    <div class="col-lg-6 fw-bold">Nyasa Swara</div>
+    <div class="col-lg-6 fw-bold">Mood</div>
+</div>
+<div class="row">
+    <div class="col-lg-6">@Model.NyasaSwara</div>
+    <div class="col-lg-6">@Model.Mood</div>
+</div>
+
+@*<div class="row m-0 p-0 mt-1">
+        <div class="col-lg-6 fw-bold">Time</div>
+        <div class="col-lg-6 fw-bold">Mood</div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">@Model.RaagaTime</div>
+        <div class="col-lg-6">@Model.Mood</div>
+    </div>*@
+<div class="row mt-4">
+    <p><a href="/raaga/@Model.RaagaName.ToLower()">View Details</a></p>
+</div>

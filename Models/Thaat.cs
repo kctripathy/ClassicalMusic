@@ -25,6 +25,8 @@ namespace ClassicalMusicApp.Models
         public string ThaatDesc { get; set; }
         public Nullable<int> MusicTypeID { get; set; }
         public Nullable<int> AppResourceID { get; set; }
+        public string Aroh { get; set; }
+        public string Avroh { get; set; }
     
         public virtual AppResource AppResource { get; set; }
         public virtual MusicType MusicType { get; set; }

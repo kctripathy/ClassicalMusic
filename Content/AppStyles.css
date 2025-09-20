@@ -10,6 +10,21 @@
     --border-color: #db005e;
 }
 
+body {
+    
+}
+
+.web-footer {
+    color: var(--first-color);
+    background-color: var(--second-color);
+    bottom: 0;
+    position: fixed;
+    font-size: smaller;
+    text-align: center;
+    width: 100vw;
+    border-top: solid 1px var(--border-color);
+    padding-top: 5px;
+}
 /*****************************************************/
 
 .navbar-dark {
@@ -37,8 +52,17 @@
     color: var(--highlight-color);
 }
 
+.gradient-boder {
+    background: #FFFFFF;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 1) 12%, rgba(174, 30, 92, 1) 50%, rgba(255, 255, 255, 1) 89%);
+    height: 1px;
+    margin: -9px 0px 5px 0px;
+    padding: 0px;
+}
+
 a {
     text-decoration: none;
+    cursor: pointer;
 }
 
 a:hover {
@@ -46,30 +70,43 @@ a:hover {
 }
 
 #homepage_main_section > section {
-    height: 300px;
-    padding: 5px;
-    border-top: solid 1px #808080;
-    border-bottom: solid 1px #808080;
+    height: 320px;
+    padding: 10px;
     border-radius: 10px;
     text-align: center;
+    overflow: hidden;
+    overflow-y: auto;
+    box-shadow: inset 0 0 1px grey;
+    background-color: #fbfbfb;
 }
+/*
+    #homepage_main_section > section:first-child {
+        border-left: solid 1px #808080;
+    }
+
+    #homepage_main_section > section:last-child {
+        border-right: solid 1px #808080;
+    }*/
+
+.hide-scrollbar {
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+    scrollbar-width: none; /* Firefox */
+}
+
+    .hide-scrollbar::-webkit-scrollbar {
+        display: none; /* Safari and Chrome */
+    }
 
 .artist-name-homepage {
     border-bottom: solid 1px #cc4f4f;
     font-size: 0.9em;
 }
 
-#homepage_main_section > section:first-child {
-    border-left: solid 1px #808080;
-}
 
-#homepage_main_section > section:last-child {
-    border-right: solid 1px #808080;
-}
 
 .swara {
     font-family: sans-serif;
-    font-weight: bold;
+    font-size: 1rem;
 }
 /*****************************************************/
 /* Style the dropdown select */
@@ -143,3 +180,48 @@ a:hover {
 #raga-composition-table > tbody > tr > td > a:hover {
     color: var(--highlight-color);
 }
+
+.short-message {
+    color: #00008b;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 500px;
+    margin: 0;
+    padding: 0;
+    background-color: yellow;
+}
+
+.short-message-two-lines {
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Limit to 2 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Optional: adds ellipsis at the end */
+}
+
+/*
+    scroll bar
+
+*/
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 2px grey;
+    background: #f1f1f1;
+    border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--first-color);
+}
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }

@@ -26,6 +26,9 @@ namespace ClassicalMusicApp
                       "~/Content/bootstrap.css",
                       "~/Content/site.css",
                       "~/Content/AppStyles.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/customscripts").Include(
+                    "~/Scripts/AppScript.js"));
         }
     }
 }

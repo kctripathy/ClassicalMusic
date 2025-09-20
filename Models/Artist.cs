@@ -27,6 +27,10 @@ namespace ClassicalMusicApp.Models
         public string Biography { get; set; }
         public string Country { get; set; }
         public Nullable<int> AppResourceID { get; set; }
+        public string ImageUrl { get; set; }
+        public Nullable<bool> IsFamous { get; set; }
+        public string BirthDeathYear { get; set; }
+        public string BriefDesc { get; set; }
     
         public virtual AppResource AppResource { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

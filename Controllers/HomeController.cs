@@ -31,7 +31,7 @@ namespace ClassicalMusicApp.Controllers
         }
 
         [ChildActionOnly]
-        [OutputCache(Duration = 86400, VaryByParam = "none", VaryByCustom = "Daily")]
+        //[OutputCache(Duration = 86400, VaryByParam = "none", VaryByCustom = "Daily")]
         public PartialViewResult RaagaOfTheDay()
         {
             int? appResId = LanguageHelper.GetCurrenAppResourceId();

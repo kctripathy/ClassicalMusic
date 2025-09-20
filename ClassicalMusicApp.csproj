@@ -350,6 +350,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\logo-1.png" />
     <Content Include="Models\ClassicalMusicDataModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ClassicalMusicDataModel.edmx</DependentUpon>
@@ -360,6 +361,7 @@
       <DependentUpon>ClassicalMusicDataModel.edmx</DependentUpon>
       <LastGenOutput>ClassicalMusicDataModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Scripts\AppScript.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />

@@ -39,6 +39,8 @@ namespace ClassicalMusicApp.Models
         public Nullable<System.DateTime> AddedDate { get; set; }
         public Nullable<int> ModifiedBy { get; set; }
         public Nullable<System.DateTime> ModifiedDate { get; set; }
+        public string NyasaSwara { get; set; }
+        public string Jati { get; set; }
     
         public virtual AppResource AppResource { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

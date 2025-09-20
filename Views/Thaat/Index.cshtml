@@ -10,10 +10,16 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.ThaatName)
+            Name
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ThaatDesc)
+            Description
+        </th>
+        <th>
+            Aroh
+        </th>
+        <th>
+            Avroh
         </th>
     </tr>
 
@@ -25,6 +31,12 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ThaatDesc)
+            </td>
+            <td class="swara">
+                @Html.DisplayFor(modelItem => item.Aroh)
+            </td>
+            <td class="swara">
+                @Html.DisplayFor(modelItem => item.Avroh)
             </td>
         </tr>
     }
