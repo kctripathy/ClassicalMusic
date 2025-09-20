@@ -1,16 +1,27 @@
 ﻿@using Microsoft.AspNet.Identity
+@{
+    var isAdmin = User.IsInRole("Admin");
+}
 @if (Request.IsAuthenticated)
 {
     using (Html.BeginForm(@Resources.Labels.Menu_LogOff, "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
     {
     @Html.AntiForgeryToken()
 
-    <ul class="navbar-nav navbar-right">
+<ul class="navbar-nav navbar-right">
+    <li>
+        @Html.ActionLink(@Resources.Labels.Menu_Hello + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", @class = "nav-link" })
+    </li>
+    @if (isAdmin)
+    {
         <li>
-            @Html.ActionLink(@Resources.Labels.Menu_Hello + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", @class="nav-link" })
+            @Html.ActionLink("Dashboard", "Dashboard", "Admin", routeValues: null, htmlAttributes: new { title = "Dashboard", @class = "nav-link" })
         </li>
-        <li><a class="nav-link" href="javascript:document.getElementById('logoutForm').submit()">@Resources.Labels.Menu_LogOff</a></li>
-    </ul>
+    }
+    <li>
+        <a class="nav-link" href="javascript:document.getElementById('logoutForm').submit()">@Resources.Labels.Menu_LogOff</a>
+    </li>
+</ul>
     }
 }
 else

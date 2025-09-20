@@ -7,9 +7,15 @@
     --second-color: #180f13;
     --third-color: #621737;
     --page-head-color: #180f13;
+    --border-color: #db005e;
 }
 
 /*****************************************************/
+
+.navbar-dark {
+    border-bottom: solid 2px var(--border-color) !important;
+}
+
 .page-header {
     font-size: 1.8rem;
     font-weight: 600;
@@ -28,6 +34,14 @@
 }
 
 .page-header-highlight {
+    color: var(--highlight-color);
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
     color: var(--highlight-color);
 }
 
@@ -51,6 +65,11 @@
 
 #homepage_main_section > section:last-child {
     border-right: solid 1px #808080;
+}
+
+.swara {
+    font-family: sans-serif;
+    font-weight: bold;
 }
 /*****************************************************/
 /* Style the dropdown select */
