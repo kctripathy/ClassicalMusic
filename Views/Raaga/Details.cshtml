@@ -27,18 +27,7 @@
                 </tr>
                 <tr>
                     <td class="table-label">Aroh</td>
-                    <td class="table-value">
-                        @*@{
-                    var chars = Model.raaga.Aroh.Split(' ');
-                    foreach (var c in chars)
-                    {
-                        var swara = String.Concat(rm.GetString(c), " ");
-                        @swara;
-                    }
-                }*@
-
-                        @Model.raaga.Aroh
-                    </td>
+                    <td class="table-value">@Model.raaga.Aroh</td>
                 </tr>
                 <tr>
                     <td class="table-label">Avroh</td>

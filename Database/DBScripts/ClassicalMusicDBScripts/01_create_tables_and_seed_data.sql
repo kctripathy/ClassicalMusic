@@ -176,6 +176,9 @@ INSERT INTO Raaga (RaagaName, ThaatID, RaagaTime, Mood, Aroh, Avroh, Vadi, Samva
 
 ALTER TABLE Raaga ADD RaagaDesc NVARCHAR(MAX) NULL;
 
+ALTER TABLE Raaga ADD Jati NVARCHAR(100); --new
+ALTER TABLE Raaga ADD NyasaSwara NVARCHAR(20); --new
+
 ALTER TABLE Raaga ADD IsActive BIT DEFAULT(1);
 ALTER TABLE Raaga ADD AddedBy INT DEFAULT(1);
 ALTER TABLE Raaga ADD AddedDate DATETIME DEFAULT(GETDATE());
