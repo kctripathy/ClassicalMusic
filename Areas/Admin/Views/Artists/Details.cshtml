@@ -1,0 +1,83 @@
+﻿@model ClassicalMusicApp.Models.Artist
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Artist</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ArtistName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ArtistName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Biography)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Biography)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Country)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Country)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageUrl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImageUrl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsFamous)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsFamous)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BirthDeathYear)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BirthDeathYear)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BriefDesc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BriefDesc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AppResource.AppResource_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AppResource.AppResource_name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

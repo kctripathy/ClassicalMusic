@@ -1,0 +1,76 @@
+﻿@model IEnumerable<ClassicalMusicApp.Models.Artist>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ArtistName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Biography)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Country)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImageUrl)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsFamous)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BirthDeathYear)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BriefDesc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AppResource.AppResource_name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ArtistName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Biography)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Country)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ImageUrl)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsFamous)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BirthDeathYear)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BriefDesc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AppResource.AppResource_name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

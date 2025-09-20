@@ -214,7 +214,10 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\ArtistsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CompositionsController.cs" />
     <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
+    <Compile Include="Areas\Admin\Controllers\RaagasController.cs" />
     <Compile Include="CommonFunctions.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -386,6 +389,23 @@
     </EmbeddedResource>
     <Content Include="Areas\Admin\Views\Dashboard\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Web.config" />
+    <Content Include="Areas\Admin\Views\Shared\_AdminMenu.cshtml" />
+    <Content Include="Areas\Admin\Views\Artists\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Artists\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Artists\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Artists\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Artists\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Raagas\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Raagas\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Raagas\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Raagas\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Raagas\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Compositions\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Compositions\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Compositions\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Compositions\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Compositions\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\ValidationErrorPopup.cshtml" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />
@@ -451,7 +471,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Images\Artists\" />
     <Folder Include="Images\Raaga\" />
     <Folder Include="Views\Language\" />

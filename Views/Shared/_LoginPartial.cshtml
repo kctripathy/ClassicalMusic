@@ -14,8 +14,23 @@
     </li>
     @if (isAdmin)
     {
-        <li>
+        @*<li>
             @Html.ActionLink("Dashboard", "Dashboard", "Admin", routeValues: null, htmlAttributes: new { title = "Dashboard", @class = "nav-link" })
+        </li>*@
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Admin
+            </a>
+            <ul class="dropdown-menu">
+
+                @*<li>@Html.ActionLink("Dashboard", "Dashboard", "Admin", routeValues: null, htmlAttributes: new { area = "Admin", title = "Dashboard", @class = "dropdown-item" })</li>
+        <li>@Html.ActionLink("Artists", "Artists", "Admin",routeValues: null, htmlAttributes: new { area = "Admin", title = "Artists", @class = "dropdown-item" })</li>
+        <li>@Html.ActionLink("Raaga", "Raagas", "Admin",  routeValues: null, htmlAttributes: new { area = "Admin", title = "Raaga", @class = "dropdown-item" })</li>
+        <li>@Html.ActionLink("Tala", "Talas", "Admin", routeValues: null, htmlAttributes: new { area = "Admin", title = "Tala", @class = "dropdown-item" })</li>
+        <li>@Html.ActionLink("Composition", "Compositions", "Admin", routeValues: null, htmlAttributes: new { area = "Admin", title = "Composition", @class = "dropdown-item" })</li>*@
+                <li><a class="dropdown-item" href="~/Admin/Artists">Manage Artist</a></li>
+                <li><a class="dropdown-item" href="~/Admin/Raagas">Manage Raaga</a></li>
+            </ul>
         </li>
     }
     <li>

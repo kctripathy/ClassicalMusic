@@ -1,0 +1,159 @@
+﻿@model IEnumerable<ClassicalMusicApp.Models.Raaga>
+
+@{
+    ViewBag.Title = "Manage Raaga";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="page-header">Raaga List</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-striped table-responsive-lg">
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Aroh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Avroh)
+        </th>
+
+
+
+        <th>
+            @Html.DisplayNameFor(model => model.Vadi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Samvadi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pakad)
+        </th>
+
+        <th>
+            Nyasa Swara
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Swara)
+        </th>
+        <th class="d-none">
+            Raaga Description
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsActive)
+        </th>
+        <th class="d-none">
+            @Html.DisplayNameFor(model => model.AddedBy)
+        </th>
+        <th class="d-none">
+            @Html.DisplayNameFor(model => model.AddedDate)
+        </th>
+        <th class="d-none">
+            @Html.DisplayNameFor(model => model.ModifiedBy)
+        </th>
+        <th class="d-none">
+            @Html.DisplayNameFor(model => model.ModifiedDate)
+        </th>
+
+        <th class="d-none">
+            @Html.DisplayNameFor(model => model.Jati)
+        </th>
+        <th>
+            Language
+        </th>
+        <th class="d-none">
+            @Html.DisplayNameFor(model => model.MusicType.MusicTypeName)
+        </th>
+        <th class="d-none">
+            @Html.DisplayNameFor(model => model.Thaat.ThaatName)
+        </th>
+        <th class="d-none">
+            Time
+        </th>
+        <th class="d-none">
+            @Html.DisplayNameFor(model => model.Mood)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RaagaName)
+        </td>
+        <td class="no-wrap-text">
+            @Html.DisplayFor(modelItem => item.Aroh)
+        </td>
+        <td class="no-wrap-text">
+            @Html.DisplayFor(modelItem => item.Avroh)
+        </td>
+
+
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Vadi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Samvadi)
+        </td>
+        <td class="no-wrap-text">
+            @Html.DisplayFor(modelItem => item.Pakad)
+        </td>
+
+        <td class="no-wrap-text">
+            @Html.DisplayFor(modelItem => item.NyasaSwara)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Swara)
+        </td>
+        <td class="d-none">
+            <p class="readMore">@Html.DisplayFor(modelItem => item.RaagaDesc)</p>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsActive)
+        </td>
+        <td class="d-none">
+            @Html.DisplayFor(modelItem => item.AddedBy)
+        </td>
+        <td class="d-none">
+            @Html.DisplayFor(modelItem => item.AddedDate)
+        </td>
+        <td class="d-none">
+            @Html.DisplayFor(modelItem => item.ModifiedBy)
+        </td>
+        <td class="d-none">
+            @Html.DisplayFor(modelItem => item.ModifiedDate)
+        </td>
+
+        <td class="d-none">
+            @Html.DisplayFor(modelItem => item.Jati)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AppResource.AppResource_name)
+        </td>
+        <td class="d-none">
+            @Html.DisplayFor(modelItem => item.MusicType.MusicTypeName)
+        </td>
+        <td class="d-none">
+            @Html.DisplayFor(modelItem => item.Thaat.ThaatName)
+        </td>
+        <td class="d-none">
+            @Html.DisplayFor(modelItem => item.RaagaTime)
+        </td>
+        <td class="d-none">
+            @Html.DisplayFor(modelItem => item.Mood)
+        </td>
+        <td class="no-wrap-text">
+            @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+        </td>
+    </tr>
+}
+
+</table>

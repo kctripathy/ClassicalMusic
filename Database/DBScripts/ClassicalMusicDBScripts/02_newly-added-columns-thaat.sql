@@ -39,3 +39,12 @@ ALTER TABLE Artist ADD ImageUrl VARCHAR(250);
 ALTER TABLE Artist ADD IsFamous BIT DEFAULT(1);
 ALTER TABLE Artist ADD BirthDeathYear NVARCHAR(10);
 ALTER TABLE Artist ADD BriefDesc NVARCHAR(250);
+
+select * from AppResource
+update AppResource set AppResource_name=N'??????' where id=2
+update AppResource set AppResource_name=N'?????' where id=3
+
+
+ALTER TABLE Raaga
+ADD CONSTRAINT DF_Raaga_ActiveYes -- Choose a meaningful name for your constraint
+DEFAULT (1) FOR IsActive;

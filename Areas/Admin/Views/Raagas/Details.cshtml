@@ -1,0 +1,179 @@
+﻿@model ClassicalMusicApp.Models.Raaga
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Raaga</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RaagaName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RaagaName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RaagaTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RaagaTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mood)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mood)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Aroh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Aroh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Avroh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Avroh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pakad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pakad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vadi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vadi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Samvadi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Samvadi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Swara)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Swara)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RaagaDesc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RaagaDesc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsActive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsActive)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AddedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AddedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AddedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AddedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NyasaSwara)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NyasaSwara)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Jati)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Jati)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AppResource.AppResource_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AppResource.AppResource_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MusicType.MusicTypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MusicType.MusicTypeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Thaat.ThaatName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Thaat.ThaatName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

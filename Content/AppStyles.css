@@ -1,5 +1,5 @@
 ﻿:root {
-    --primary-color: #3498db;
+    --primary-color: #ae1e5c;
     --secondary-color: orange;
     --danger-color: red;
     --highlight-color: #ae1e5c;
@@ -17,16 +17,31 @@ body {
 .web-footer {
     color: var(--first-color);
     background-color: var(--second-color);
-    bottom: 0;
-    position: fixed;
+    /*bottom: 0;*/
+    /*position: fixed;*/
     font-size: smaller;
     text-align: center;
-    width: 100vw;
+    /*width: 100vw;*/
     border-top: solid 1px var(--border-color);
     padding-top: 5px;
 }
-/*****************************************************/
+.required::after {
+    content: "*";
+    color: var(--border-color);
+    margin-left: 2px;
+}
 
+.btn-default,
+.btn-primary {
+    background-color: var(--first-color) !important;
+    border: solid 1px var(--second-color) !important
+}
+
+    .btn-primary:hover {
+        background-color: var(--second-color) !important;
+        border: solid 1px var(--first-color) !important
+    }
+/*****************************************************/
 .navbar-dark {
     border-bottom: solid 2px var(--border-color) !important;
 }
@@ -50,6 +65,10 @@ body {
 
 .page-header-highlight {
     color: var(--highlight-color);
+}
+
+.no-wrap-text {
+    white-space: nowrap;
 }
 
 .gradient-boder {

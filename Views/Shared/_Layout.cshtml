@@ -35,7 +35,7 @@
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
-        @Html.Partial("_LanguageSelector")
+        @*@Html.Partial("_LanguageSelector")*@
     </nav>
     <div class="container body-content">
         @RenderBody()
@@ -46,6 +46,42 @@
         </footer>
     </div>
 
+    <!-- Validation Modal -->
+    <div class="modal fade" id="validationModal" tabindex="-1" aria-labelledby="validationModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="validationModalLabel">Validation Error</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul id="validationErrors"></ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @if (ViewBag.ValidationErrors != null && ((List<string>)ViewBag.ValidationErrors).Any())
+    {
+        <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var errors = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.ValidationErrors));
+            var ul = document.getElementById("validationErrors");
+            errors.forEach(function (e) {
+                var li = document.createElement("li");
+                li.textContent = e;
+                ul.appendChild(li);
+            });
+
+            // Show Bootstrap modal
+            var myModal = new bootstrap.Modal(document.getElementById('validationModal'));
+            myModal.show();
+        });
+        </script>
+    }
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/customscripts")

@@ -79,7 +79,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Welcome to the world of Classical Music.
+        ///   Looks up a localized string similar to Welcome to the world of Music.
         /// </summary>
         internal static string HomePageTitle {
             get {
@@ -232,7 +232,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Classical Music.
+        ///   Looks up a localized string similar to Musicz.
         /// </summary>
         internal static string WebTitle {
             get {
